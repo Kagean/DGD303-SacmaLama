@@ -3,6 +3,8 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
 
+    Attack[] attacks;
+
     float moveSpeed = 3;
 
     bool moveUp;
@@ -11,10 +13,12 @@ public class MainCharacter : MonoBehaviour
     bool moveRight;
     bool speedUp;
 
+    bool shoot;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        attacks = transform.GetComponentsInChildren<Attack>();
     }
 
     // Update is called once per frame
@@ -25,6 +29,16 @@ public class MainCharacter : MonoBehaviour
         moveLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
         moveRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         speedUp = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+        shoot = Input.GetKeyDown(KeyCode.LeftControl);
+        if (shoot)
+        {
+            shoot = false;
+            foreach (Attack attack in attacks) 
+            {
+                attack.Shoot();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -68,13 +82,13 @@ public class MainCharacter : MonoBehaviour
         Debug.Log(moveMagnitude);
 
         pos += move;
-        if (pos.x <= 1.5f)
+        if (pos.x <= 0.5f)
         {
-            pos.x = 1.5f;
+            pos.x = 0.5f;
         }
-        if (pos.x >= 16f)
+        if (pos.x >= 17f)
         {
-            pos.x = 16;
+            pos.x = 17;
         }
         if (pos.y <= 1)
         {
