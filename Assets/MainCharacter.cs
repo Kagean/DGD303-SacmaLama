@@ -34,7 +34,7 @@ public class MainCharacter : MonoBehaviour
         if (shoot)
         {
             shoot = false;
-            foreach (Attack attack in attacks) 
+            foreach (Attack attack in attacks)
             {
                 attack.Shoot();
             }
@@ -100,5 +100,25 @@ public class MainCharacter : MonoBehaviour
         }
 
         transform.position = pos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            if (bullet.isEnemy)
+            {
+                Destroy(gameObject);
+                Destroy(bullet.gameObject);
+            }
+        }
+
+        Destroy destroy = collision.GetComponent<Destroy>();
+        if (destroy != null)
+        {
+            Destroy(gameObject);
+            Destroy(destroy.gameObject);
+        }
     }
 }

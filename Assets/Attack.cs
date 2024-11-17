@@ -6,6 +6,12 @@ public class Attack : MonoBehaviour
     public Bullet bullet;
     Vector2 direction;
 
+    public bool autoShoot = false;
+    public float shootIntervalSecods = 0.5f;
+    public float shootDelaySeconds = 0.0f;
+    float shootTimer = 0f;
+    float delayTimer = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +22,26 @@ public class Attack : MonoBehaviour
     void Update()
     {
         direction = (transform.localRotation * Vector2.right).normalized;
+
+        if (autoShoot)
+        {
+            if (delayTimer >= shootDelaySeconds)
+            {
+                if (shootTimer >= shootIntervalSecods)
+                {
+                    Shoot();
+                    shootTimer = 0;
+                }
+                else
+                {
+                    shootTimer += Time.deltaTime;
+                }
+            }
+            else
+            {
+                delayTimer += Time.deltaTime;
+            }
+        }
     }
 
 
