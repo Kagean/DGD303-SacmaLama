@@ -12,6 +12,8 @@ public class Attack : MonoBehaviour
     float shootTimer = 0f;
     float delayTimer = 0f;
 
+    public bool isActive = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +23,11 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!isActive)
+        {
+            return;
+        }
         direction = (transform.localRotation * Vector2.right).normalized;
 
         if (autoShoot)

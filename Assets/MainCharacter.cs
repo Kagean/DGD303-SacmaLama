@@ -19,6 +19,10 @@ public class MainCharacter : MonoBehaviour
     void Start()
     {
         attacks = transform.GetComponentsInChildren<Attack>();
+        foreach (Attack attack in attacks)
+        {
+            attack.isActive = true;
+        }
     }
 
     // Update is called once per frame

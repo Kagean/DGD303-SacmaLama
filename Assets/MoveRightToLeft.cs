@@ -22,7 +22,7 @@ public class MoveRightToLeft : MonoBehaviour
 
         pos.x -= moveSpeed * Time.fixedDeltaTime;
 
-        if (pos.x < -11)
+        if (pos.x < -3)
         {
             Destroy(gameObject);
         }
