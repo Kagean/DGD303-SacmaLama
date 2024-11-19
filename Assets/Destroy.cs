@@ -3,11 +3,12 @@ using UnityEngine;
 public class Destroy : MonoBehaviour
 {
     bool canBeDestroyed = false;
+    public int scoreValue = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Level.Instance.AddDestroy();
     }
 
     // Update is called once per frame
@@ -35,9 +36,15 @@ public class Destroy : MonoBehaviour
         {
             if (!bullet.isEnemy)
             {
+                Level.Instance.AddScore(scoreValue);
                 Destroy(gameObject);
                 Destroy(bullet.gameObject);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Level.Instance.RemoveDestroy();
     }
 }
