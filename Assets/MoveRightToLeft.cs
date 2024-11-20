@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class MoveRightToLeft : MonoBehaviour
 {
-    public float moveSpeed = 5;
+    public float moveSpeed = 5f;
+    public float startX = 3f;
+    public float resetThreshold = -3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -22,10 +24,11 @@ public class MoveRightToLeft : MonoBehaviour
 
         pos.x -= moveSpeed * Time.fixedDeltaTime;
 
-        if (pos.x < -3)
+        if (pos.x < resetThreshold)
         {
-            Destroy(gameObject);
+            pos.x = startX;
         }
+
 
         transform.position = pos;
     }
