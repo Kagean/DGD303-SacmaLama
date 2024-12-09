@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  startX: 30
+  resetThreshold: -3
 --- !u!114 &-3465084315005665890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8980ec589c2a119478f16c5d4c5b4fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 100
