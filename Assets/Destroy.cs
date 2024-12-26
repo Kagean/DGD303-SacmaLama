@@ -14,15 +14,14 @@ public class Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < 17.0f && !canBeDestroyed)
-        {
+
             canBeDestroyed = true;
             Attack[] attacks = transform.GetComponentsInChildren<Attack>();
             foreach (Attack attack in attacks)
             {
                 attack.isActive = true;
             }
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
