@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     float nextLevelTimer = 3;
 
     string[] levels = { "Level1", "Level2" };
-    int curentlevel = 1;
+    int currentlevel = 1;
 
     int scorePoint = 0;
     Text score;
@@ -44,10 +44,10 @@ public class Level : MonoBehaviour
         {
             if (nextLevelTimer <= 0)
             {
-                curentlevel++;
-                if (curentlevel <= levels.Length)
+                currentlevel++;
+                if (currentlevel <= levels.Length)
                 {
-                    string scenename = levels[curentlevel - 1];
+                    string scenename = levels[currentlevel - 1];
                     SceneManager.LoadSceneAsync(scenename);
                 }
                 else
@@ -62,6 +62,19 @@ public class Level : MonoBehaviour
                 nextLevelTimer -= Time.deltaTime;
             }
         }
+    }
+
+    public void ResetLevel()
+    {
+        foreach (Bullet b in GameObject.FindObjectsOfType<Bullet>())
+        {
+            Destroy (b.gameObject);
+        }
+        numDestroies = 0;
+        scorePoint = 0;
+        AddScore(scorePoint);
+        string sceneName = levels[currentlevel - 1];
+        SceneManager.LoadScene(sceneName);
     }
 
     public void AddScore(int amountToadd)

@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
 {
+    Vector2 initialPosition;
 
     Attack[] attacks;
 
     float moveSpeed = 3;
+    float speedMultiplier = 1;
+
+    int hits = 3;
+    bool invincible = false;
+    float invincibleTimer = 0;
+    float invincibleTime = 2;
 
     bool moveUp;
     bool moveDown;
@@ -15,8 +22,16 @@ public class MainCharacter : MonoBehaviour
 
     bool shoot;
 
-    int powerUpGunLevel = 0;
+    SpriteRenderer spriteRenderer;
+
     GameObject shield;
+    int powerUpGunLevel = 0;
+
+    private void Awake()
+    {
+        initialPosition = transform.position;
+        spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,13 +71,30 @@ public class MainCharacter : MonoBehaviour
 
             }
         }
+
+        if (invincible)
+        {
+
+            if (invincibleTimer >= invincibleTime)
+            {
+                invincibleTimer = 0;
+                invincible = false;
+                spriteRenderer.enabled = true;
+            }
+            else
+            {
+                invincibleTimer += Time.deltaTime;
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+            }
+        }
+
     }
 
     private void FixedUpdate()
     {
         Vector2 pos = transform.position;
 
-        float moveAmount = moveSpeed * Time.deltaTime;
+        float moveAmount = moveSpeed * speedMultiplier * Time.deltaTime;
         if (speedUp)
         {
             moveAmount *= 3;
@@ -139,19 +171,56 @@ public class MainCharacter : MonoBehaviour
         powerUpGunLevel++;
         foreach(Attack attack in attacks)
         {
-            if (attack.powerUpLevelRequirement == powerUpGunLevel)
+            if (attack.powerUpLevelRequirement <= powerUpGunLevel)
             {
                 attack.gameObject.SetActive(true);
+            }
+            else
+            {
+                attack.gameObject.SetActive(false);
             }
         }
     }
 
-    void IncreaseSpeed()
+    void SetSpeedMultiplier(float mult)
     {
-        moveSpeed*= 1.25f;
+        speedMultiplier = mult;
     }
 
+    void ResetMain()
+    {
+        transform.position = initialPosition;
+        DeactivateShield();
+        powerUpGunLevel = -1;
+        AddAttacks();
+        SetSpeedMultiplier(1);
+        hits = 3;
+        Level.Instance.ResetLevel();
+    }
 
+    void Hit(GameObject gameObjectHit)
+    {
+        if (HasShield())
+        {
+            DeactivateShield();
+        }
+        else
+        {
+            if (!invincible)
+            {
+                hits--;
+                if (hits == 0)
+                {
+                    ResetMain();
+                }
+                else
+                {
+                    invincible = true;
+                }
+                Destroy(gameObjectHit);
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -160,23 +229,14 @@ public class MainCharacter : MonoBehaviour
         {
             if (bullet.isEnemy)
             {
-                Destroy(gameObject);
-                Destroy(bullet.gameObject);
+                Hit(bullet.gameObject);
             }
         }
 
         Destroy destroy = collision.GetComponent<Destroy>();
         if (destroy != null)
         {
-            if (HasShield())
-            {
-                DeactivateShield();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-            Destroy(destroy.gameObject);
+            Hit(destroy.gameObject);
         }
 
         PowerUP powerUP = collision.GetComponent<PowerUP>();
@@ -193,7 +253,7 @@ public class MainCharacter : MonoBehaviour
             }
             if (powerUP.increaseSpeed)
             {
-                IncreaseSpeed();
+                SetSpeedMultiplier(speedMultiplier +1);
             }
             Level.Instance.AddScore(powerUP.pointValue);
             Destroy(powerUP.gameObject);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Destroy : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class Destroy : MonoBehaviour
     void Update()
     {
 
-            canBeDestroyed = true;
+
+        canBeDestroyed = true;
             Attack[] attacks = transform.GetComponentsInChildren<Attack>();
             foreach (Attack attack in attacks)
             {
@@ -36,14 +38,10 @@ public class Destroy : MonoBehaviour
             if (!bullet.isEnemy)
             {
                 Level.Instance.AddScore(scoreValue);
+                Level.Instance.RemoveDestroy();
                 Destroy(gameObject);
                 Destroy(bullet.gameObject);
             }
         }
-    }
-
-    private void OnDestroy()
-    {
-        Level.Instance.RemoveDestroy();
     }
 }
