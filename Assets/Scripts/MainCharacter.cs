@@ -15,13 +15,22 @@ public class MainCharacter : MonoBehaviour
 
     bool shoot;
 
+    int powerUpGunLevel = 0;
+    GameObject shield;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        shield = transform.Find("Shield").gameObject;
+        DeactivateShield();
         attacks = transform.GetComponentsInChildren<Attack>();
         foreach (Attack attack in attacks)
         {
             attack.isActive = true;
+            if (attack.powerUpLevelRequirement != 0)
+            {
+                attack.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -40,7 +49,11 @@ public class MainCharacter : MonoBehaviour
             shoot = false;
             foreach (Attack attack in attacks)
             {
-                attack.Shoot();
+                if (attack.gameObject.activeSelf)
+                {
+                    attack.Shoot();
+                }
+
             }
         }
     }
@@ -106,6 +119,40 @@ public class MainCharacter : MonoBehaviour
         transform.position = pos;
     }
 
+    void ActivadeShield()
+    {
+        shield.SetActive(true);
+    }
+
+    void DeactivateShield()
+    {
+        shield.SetActive(false);
+    }
+
+    bool HasShield()
+    {
+        return shield.activeSelf;
+    }
+
+    void AddAttacks()
+    {
+        powerUpGunLevel++;
+        foreach(Attack attack in attacks)
+        {
+            if (attack.powerUpLevelRequirement == powerUpGunLevel)
+            {
+                attack.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    void IncreaseSpeed()
+    {
+        moveSpeed*= 1.25f;
+    }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bullet = collision.GetComponent<Bullet>();
@@ -121,8 +168,35 @@ public class MainCharacter : MonoBehaviour
         Destroy destroy = collision.GetComponent<Destroy>();
         if (destroy != null)
         {
-            Destroy(gameObject);
+            if (HasShield())
+            {
+                DeactivateShield();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             Destroy(destroy.gameObject);
+        }
+
+        PowerUP powerUP = collision.GetComponent<PowerUP>();
+        if (powerUP)
+        {
+            if (powerUP.activateShield)
+            {
+                ActivadeShield();
+            }
+
+            if (powerUP.addAttacks)
+            {
+                AddAttacks();
+            }
+            if (powerUP.increaseSpeed)
+            {
+                IncreaseSpeed();
+            }
+            Level.Instance.AddScore(powerUP.pointValue);
+            Destroy(powerUP.gameObject);
         }
     }
 }

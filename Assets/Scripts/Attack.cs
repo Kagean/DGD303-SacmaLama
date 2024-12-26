@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-
+    public int powerUpLevelRequirement = 0;
     public Bullet bullet;
     Vector2 direction;
 

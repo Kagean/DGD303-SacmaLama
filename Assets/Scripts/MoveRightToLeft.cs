@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoveRightToLeft : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public bool useReset = true;
     public float startX = 3f;
     public float resetThreshold = -3f;
 
@@ -24,7 +25,7 @@ public class MoveRightToLeft : MonoBehaviour
 
         pos.x -= moveSpeed * Time.fixedDeltaTime;
 
-        if (pos.x < resetThreshold)
+        if (useReset && pos.x < resetThreshold)
         {
             pos.x = startX;
         }
