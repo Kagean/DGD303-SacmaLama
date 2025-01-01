@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SmallBoxObstacle_0: -2040267985662697308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

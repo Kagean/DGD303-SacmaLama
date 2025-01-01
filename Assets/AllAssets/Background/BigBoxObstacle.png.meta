@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BigBoxObstacle_0: -6334086695690410195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
