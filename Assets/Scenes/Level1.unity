@@ -744,9 +744,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpLevelRequirement: 0
+  powerUpLevelRequirement: 1
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 1
+  autoShoot: 0
   shootIntervalSecods: 1
   shootDelaySeconds: 2
   isActive: 0
@@ -808,9 +808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpLevelRequirement: 0
+  powerUpLevelRequirement: 1
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 1
+  autoShoot: 0
   shootIntervalSecods: 1
   shootDelaySeconds: 2
   isActive: 0
@@ -936,9 +936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpLevelRequirement: 0
+  powerUpLevelRequirement: 2
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 1
+  autoShoot: 0
   shootIntervalSecods: 1
   shootDelaySeconds: 2
   isActive: 0
@@ -1290,9 +1290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpLevelRequirement: 0
+  powerUpLevelRequirement: 2
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 1
+  autoShoot: 0
   shootIntervalSecods: 1
   shootDelaySeconds: 2
   isActive: 0
