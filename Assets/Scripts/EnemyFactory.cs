@@ -12,11 +12,8 @@ namespace Shmup
                 .SetSpline(spline)
                 .SetSpeed(enemyType.speed);
 
-            // Weapons in Part 3
-
             return builder.Build();
         }
 
-        // More factory methods, for example enemies that do not follow a spline
     }
 }

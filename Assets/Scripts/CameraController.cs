@@ -7,7 +7,12 @@ namespace Shmup
         [SerializeField] Transform player;
         [SerializeField] float speed = 2f;
 
-        void Start() => transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        public float Speed => speed;
+
+        void Start()
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
 
         private void LateUpdate()
         {

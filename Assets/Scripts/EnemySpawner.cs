@@ -39,7 +39,6 @@ namespace Shmup
             EnemyType enemyType = enemyTypes[Random.Range(0, enemyTypes.Count)];
             SplineContainer spline = splines[Random.Range(0, splines.Count)];
 
-            // TODO: Possible optimization - pool enemies
             enemyFactory.CreateEnemy(enemyType, spline);
             enemiesSpawned++;
         }
