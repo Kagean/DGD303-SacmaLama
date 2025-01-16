@@ -6,6 +6,8 @@ namespace Shmup
     {
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
+        bool shoot;
+        Attack[] attacks;
 
         [SerializeField] GameObject model;
 
@@ -27,6 +29,15 @@ namespace Shmup
         {
             input = GetComponent<InputReader>();
             targetPosition = transform.position;
+            attacks = transform.GetComponentsInChildren<Attack>();
+            foreach (Attack attack in attacks)
+            {
+                attack.isActive = true;
+                if (attack.powerUpLevelRequirement != 0)
+                {
+                    attack.gameObject.SetActive(false);
+                }
+            }
         }
 
         void Update()
@@ -44,6 +55,21 @@ namespace Shmup
             targetPosition.y = Mathf.Clamp(targetPosition.y, minPlayerY, maxPlayerY);
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothness);
+
+            shoot = Input.GetKeyDown(KeyCode.Space);
+            if (shoot)
+            {
+                shoot = false;
+                foreach (Attack attack in attacks)
+                {
+                    if (attack.gameObject.activeSelf)
+                    {
+                        attack.Shoot();
+                    }
+
+                }
+            }
+
         }
 
     }
