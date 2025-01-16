@@ -61,15 +61,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
     <Compile Include="Assets\Scripts\Quit.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Bounce.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ParallaxController.cs" />
     <Compile Include="Assets\Scripts\MainCharacter.cs" />
     <Compile Include="Assets\Scripts\EnemyFactory.cs" />
@@ -81,7 +78,6 @@
     <Compile Include="Assets\Scripts\Loading.cs" />
     <Compile Include="Assets\Scripts\InputReader.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
