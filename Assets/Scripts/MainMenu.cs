@@ -1,10 +1,23 @@
+using Eflatun.SceneReference;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Utilities;
 
-public class MainMenu : MonoBehaviour
+namespace Shmup
 {
-    public void PlayGame()
+    public class MainMenuUI : MonoBehaviour
     {
-        SceneManager.LoadScene(1);
+        [SerializeField] SceneReference startingLevel;
+        [SerializeField] Button playButton;
+        [SerializeField] Button SettingsButton;
+        [SerializeField] Button quitButton;
+
+        void Awake()
+        {
+            playButton.onClick.AddListener(() => Loader.Loading(startingLevel));
+            SettingsButton.onClick.AddListener(() => Helpers.QuitGame());
+            quitButton.onClick.AddListener(() => Helpers.QuitGame());
+            Time.timeScale = 1f;
+        }
     }
 }
