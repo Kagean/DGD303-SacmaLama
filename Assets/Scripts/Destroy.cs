@@ -8,7 +8,7 @@ public class Destroy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Level.Instance.AddDestroy();
+
     }
 
     // Update is called once per frame
@@ -36,8 +36,6 @@ public class Destroy : MonoBehaviour
         {
             if (!bullet.isEnemy)
             {
-                Level.Instance.AddScore(scoreValue);
-                Level.Instance.RemoveDestroy();
                 Destroy(gameObject);
                 Destroy(bullet.gameObject);
             }
