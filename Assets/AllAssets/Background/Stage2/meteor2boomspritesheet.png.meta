@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      meteor2boomspritesheet_0: 8427254896753093805
+      meteor2boomspritesheet_1: -2867392123350185095
+      meteor2boomspritesheet_2: 8203698622492006049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

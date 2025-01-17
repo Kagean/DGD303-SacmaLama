@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: ce95bbd1285b5cb43ad5f77a170d4a00
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1332286747264403990
+    second: llamaspiningspritesheet2_0
+  - first:
+      213: 4745260569470934994
+    second: llamaspiningspritesheet2_1
+  - first:
+      213: -5831201867895848407
+    second: llamaspiningspritesheet2_2
+  - first:
+      213: -5385577544762899330
+    second: llamaspiningspritesheet2_3
+  - first:
+      213: 3371931074020985269
+    second: llamaspiningspritesheet2_4
+  - first:
+      213: -1206187125363550425
+    second: llamaspiningspritesheet2_5
+  - first:
+      213: -1578300938349864106
+    second: llamaspiningspritesheet2_6
+  - first:
+      213: 6387209756335051318
+    second: llamaspiningspritesheet2_7
+  - first:
+      213: -9160330778281117909
+    second: llamaspiningspritesheet2_8
+  - first:
+      213: -5057020830237562819
+    second: llamaspiningspritesheet2_9
+  - first:
+      213: 3590814706992301321
+    second: llamaspiningspritesheet2_10
+  - first:
+      213: -3118198171320494598
+    second: llamaspiningspritesheet2_11
+  - first:
+      213: -7967906448469781316
+    second: llamaspiningspritesheet2_12
+  - first:
+      213: 1722280496563175053
+    second: llamaspiningspritesheet2_13
+  - first:
+      213: 8958357914358199386
+    second: llamaspiningspritesheet2_14
+  - first:
+      213: -4900819196946771483
+    second: llamaspiningspritesheet2_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae5385a1344c28de0800000000000000
+      internalID: -1332286747264403990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 2
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df9bf1b85d8ad140800000000000000
+      internalID: 4745260569470934994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9224972dbc8631fa0800000000000000
+      internalID: -5831201867895848407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74461ec1c59245b0800000000000000
+      internalID: -5385577544762899330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b94f1252718bce20800000000000000
+      internalID: 3371931074020985269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7275e0c3333c24fe0800000000000000
+      internalID: -1206187125363550425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_6
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b9df4a8afb81ae0800000000000000
+      internalID: -1578300938349864106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_7
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6329248be6de3a850800000000000000
+      internalID: 6387209756335051318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_8
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27f97fc0b7ffd080800000000000000
+      internalID: -9160330778281117909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_9
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3860ff195ad1d9b0800000000000000
+      internalID: -5057020830237562819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 905468873f225d130800000000000000
+      internalID: 3590814706992301321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_11
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af55b2bb84fe9b4d0800000000000000
+      internalID: -3118198171320494598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_12
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 0
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb41a670d4f4c6190800000000000000
+      internalID: -7967906448469781316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_13
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e3b319cf4c6e710800000000000000
+      internalID: 1722280496563175053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_14
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5431284f0b725c70800000000000000
+      internalID: 8958357914358199386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: llamaspiningspritesheet2_15
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 0
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e19291f7eaccfbb0800000000000000
+      internalID: -4900819196946771483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      llamaspiningspritesheet2_0: -1332286747264403990
+      llamaspiningspritesheet2_1: 4745260569470934994
+      llamaspiningspritesheet2_10: 3590814706992301321
+      llamaspiningspritesheet2_11: -3118198171320494598
+      llamaspiningspritesheet2_12: -7967906448469781316
+      llamaspiningspritesheet2_13: 1722280496563175053
+      llamaspiningspritesheet2_14: 8958357914358199386
+      llamaspiningspritesheet2_15: -4900819196946771483
+      llamaspiningspritesheet2_2: -5831201867895848407
+      llamaspiningspritesheet2_3: -5385577544762899330
+      llamaspiningspritesheet2_4: 3371931074020985269
+      llamaspiningspritesheet2_5: -1206187125363550425
+      llamaspiningspritesheet2_6: -1578300938349864106
+      llamaspiningspritesheet2_7: 6387209756335051318
+      llamaspiningspritesheet2_8: -9160330778281117909
+      llamaspiningspritesheet2_9: -5057020830237562819
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

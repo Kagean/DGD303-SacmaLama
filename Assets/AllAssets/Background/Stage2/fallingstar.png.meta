@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fallingstar_0: -5826755775429614355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

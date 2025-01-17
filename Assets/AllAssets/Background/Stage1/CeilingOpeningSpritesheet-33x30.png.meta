@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CeilingOpeningSpritesheet-33x30_0: 8030830839885241050
+      CeilingOpeningSpritesheet-33x30_1: 1588185881247509631
+      CeilingOpeningSpritesheet-33x30_2: 4762714984511251109
+      CeilingOpeningSpritesheet-33x30_3: -7184788780508513354
+      CeilingOpeningSpritesheet-33x30_4: 5239302347391575921
+      CeilingOpeningSpritesheet-33x30_5: 644325877161103915
+      CeilingOpeningSpritesheet-33x30_6: -3899595748947108095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

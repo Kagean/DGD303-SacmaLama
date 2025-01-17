@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Star1Spritesheet-11x11_0: -4191282356238069512
+      Star1Spritesheet-11x11_1: 5361284706383561097
+      Star1Spritesheet-11x11_2: -15285643538660896
+      Star1Spritesheet-11x11_3: -5334584354434064511
+      Star1Spritesheet-11x11_4: 5948157827385822556
+      Star1Spritesheet-11x11_5: -5916522799013177109
+      Star1Spritesheet-11x11_6: -8212070295120625181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -407,10 +407,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingLevel:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  playButton: {fileID: 0}
-  quitButton: {fileID: 0}
+    asset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  playButton: {fileID: 619327628}
+  quitButton: {fileID: 1893323708}
 --- !u!114 &270241460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,10 +1304,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCount: 0
-  initialForceX: 7500
+  initialForceX: 8000
   initialForceY: -450
   speedThreshold: 2
   randomSpeedRange: 3
+  lamaTransform: {fileID: 969673699}
+  lamaRotationSpeed: -20
 --- !u!50 &1392346632
 Rigidbody2D:
   serializedVersion: 5

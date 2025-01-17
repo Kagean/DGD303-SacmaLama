@@ -10,6 +10,10 @@ public class Bounce : MonoBehaviour
     public float speedThreshold = 2f;
     public float randomSpeedRange = 3f;
 
+    // Lama referans�
+    public Transform lamaTransform;
+    public float lamaRotationSpeed = 100f;
+
     void Go()
     {
         float rand = Random.Range(0, 2);
@@ -34,6 +38,13 @@ public class Bounce : MonoBehaviour
 
     void Update()
     {
+        // Lama d�n���
+        if (lamaTransform != null)
+        {
+            lamaTransform.Rotate(0, 0, lamaRotationSpeed * Time.deltaTime);
+        }
+
+        // Dairenin h�z�n� kontrol et
         if (Mathf.Abs(rb2d.linearVelocity.x) < speedThreshold)
         {
             rb2d.linearVelocity = new Vector2(Random.Range(3, randomSpeedRange), rb2d.linearVelocity.y);
