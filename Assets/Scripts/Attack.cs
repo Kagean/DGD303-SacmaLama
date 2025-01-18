@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasý süre
     public bool isActive = false;
 
-    private float shootTimer = 0f; // Saldýrý zamanlayýcý
+    private float shootCooldown = 0f; // Soðuma süresi
 
     void Update()
     {
@@ -22,19 +22,17 @@ public class Attack : MonoBehaviour
         // Tuþ basýlý tutuluyorsa
         if (Input.GetKey(KeyCode.Space))
         {
-            shootTimer += Time.deltaTime;
-
-            // Zamanlayýcý yeterince büyükse saldýr
-            if (shootTimer >= shootIntervalSeconds)
+            // Eðer belirlenen soðuma süresi geçmiþse, ateþ et
+            shootCooldown += Time.deltaTime;
+            if (shootCooldown >= shootIntervalSeconds)
             {
                 Shoot();
-                shootTimer = 0f; // Zamanlayýcýyý sýfýrla
+                shootCooldown = 0f; // Soðuma süresini sýfýrla
             }
         }
         else
         {
-            // Tuþ býrakýldýðýnda zamanlayýcýyý sýfýrla
-            shootTimer = shootIntervalSeconds;
+            shootCooldown = 0f; // Tuþ býrakýldýðýnda soðuma süresini sýfýrla
         }
     }
 

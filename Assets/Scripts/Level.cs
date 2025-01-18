@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public static Level Instance;
 
@@ -24,8 +23,6 @@ public class Level : MonoBehaviour
     {
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (startNextLevel)
@@ -42,7 +39,7 @@ public class Level : MonoBehaviour
                 {
                     Debug.Log("Game Over!!!");
                 }
-                nextLevelTimer = 3;
+                nextLevelTimer = 5;
                 startNextLevel = false;
             }
             else
@@ -54,9 +51,10 @@ public class Level : MonoBehaviour
 
     public void ResetLevel()
     {
-        foreach (Bullet b in GameObject.FindObjectsOfType<Bullet>())
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
         {
-            Destroy (b.gameObject);
+            Destroy(bullet);
         }
         numDestroies = 0;
         string sceneName = levels[currentlevel - 1];

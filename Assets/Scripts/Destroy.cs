@@ -3,7 +3,6 @@ using UnityEngine;
 public class Destroy : MonoBehaviour
 {
     bool canBeDestroyed = false;
-    public int scoreValue = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,8 +13,6 @@ public class Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         canBeDestroyed = true;
             Attack[] attacks = transform.GetComponentsInChildren<Attack>();
             foreach (Attack attack in attacks)
