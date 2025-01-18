@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257709034022463901}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.56200004, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.5620001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4112652946940660714}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
+  m_Father: {fileID: 7479882620248403317}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2308235133192914953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,8 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 0
   bullet: {fileID: 2609838048198580613, guid: 00cf5dcdea9a68b4791fbe455d6ac442, type: 3}
-  shootIntervalSeconds: 0.5
-  isActive: 0
+  autoShoot: 1
+  shootIntervalSeconds: 3
+  shootDelaySeconds: 0.5
+  isActive: 1
 --- !u!1 &3049104284239409048
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +83,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5858033612189496373}
   - {fileID: 4112652946940660714}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,8 +224,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5858033612189496373}
+  m_Children: []
   m_Father: {fileID: 7479882620248403317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &9186026001637211312

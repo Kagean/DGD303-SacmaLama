@@ -6,7 +6,11 @@ public class Attack : MonoBehaviour
     public Bullet bullet;
     private Vector2 direction;
 
+    public bool autoShoot = false;
     public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasý süre
+    public float shootDelaySeconds = 0.0f;
+    float shootTimer = 0.0f;
+    float delayTimer = 0.0f;
     public bool isActive = false;
 
     private float shootCooldown = 0f; // Soðuma süresi
@@ -33,6 +37,26 @@ public class Attack : MonoBehaviour
         else
         {
             shootCooldown = 0f; // Tuþ býrakýldýðýnda soðuma süresini sýfýrla
+        }
+
+        if (autoShoot)
+        {
+            if (delayTimer >= shootDelaySeconds)
+            {
+                if (shootTimer >= shootIntervalSeconds)
+                {
+                    Shoot();
+                    shootTimer = 0f;
+                }
+                else
+                {
+                    shootTimer += Time.deltaTime;
+                }
+            }
+            else
+            {
+                delayTimer += Time.deltaTime;
+            }
         }
     }
 

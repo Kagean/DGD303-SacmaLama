@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d24a3fa710ecd047a9adab7c4b10cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -1, y: 0}
-  speed: 20
+  direction: {x: 1, y: 0}
+  speed: 10
   velocity: {x: 0, y: 0}
   isEnemy: 1
 --- !u!61 &5780658587188212083
