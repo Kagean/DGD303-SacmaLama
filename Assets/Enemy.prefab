@@ -47,7 +47,7 @@ MonoBehaviour:
   powerUpLevelRequirement: 0
   bullet: {fileID: 2609838048198580613, guid: 00cf5dcdea9a68b4791fbe455d6ac442, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 3
+  shootIntervalSeconds: 2.5
   shootDelaySeconds: 0.5
   isActive: 1
 --- !u!1 &3049104284239409048
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8980ec589c2a119478f16c5d4c5b4fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 100
 --- !u!61 &1846277419722889133
 BoxCollider2D:
   m_ObjectHideFlags: 0

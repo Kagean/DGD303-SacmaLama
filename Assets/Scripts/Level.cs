@@ -9,13 +9,25 @@ public class Level : MonoBehaviour
 
     uint numDestroies = 0;
     bool startNextLevel = false;
-    float nextLevelTimer = 3;
+    float nextLevelTimer = 5;
 
     string[] levels = { "Level1", "Level2" };
     int currentlevel = 1;
 
+    int score = 0;
+    Text scoreText;
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -59,6 +71,12 @@ public class Level : MonoBehaviour
         numDestroies = 0;
         string sceneName = levels[currentlevel - 1];
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void AddScore(int amountToAdd)
+    {
+        score += amountToAdd;
+        scoreText.text = score.ToString();
     }
     public void AddDestroy()
     {
