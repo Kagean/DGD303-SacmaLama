@@ -696,7 +696,6 @@ GameObject:
   m_Component:
   - component: {fileID: 632198520}
   - component: {fileID: 632198522}
-  - component: {fileID: 632198521}
   m_Layer: 0
   m_Name: SpitMaker (2)
   m_TagString: Untagged
@@ -719,19 +718,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254124084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.5}
---- !u!114 &632198521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632198519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001f6140580aada4192143994c135009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7264697035596374677, guid: 1b4c18ed6b1894d498617472b89df5e8, type: 3}
 --- !u!114 &632198522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,10 +732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 1
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 0
-  shootIntervalSecods: 1
-  shootDelaySeconds: 2
   isActive: 0
+  shootIntervalSeconds: 0.5
 --- !u!1 &981391659
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +744,6 @@ GameObject:
   m_Component:
   - component: {fileID: 981391660}
   - component: {fileID: 981391662}
-  - component: {fileID: 981391661}
   m_Layer: 0
   m_Name: SpitMaker (1)
   m_TagString: Untagged
@@ -783,19 +766,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254124084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.5}
---- !u!114 &981391661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981391659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001f6140580aada4192143994c135009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7264697035596374677, guid: 1b4c18ed6b1894d498617472b89df5e8, type: 3}
 --- !u!114 &981391662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,10 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 1
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 0
-  shootIntervalSecods: 1
-  shootDelaySeconds: 2
   isActive: 0
+  shootIntervalSeconds: 0.5
 --- !u!1 &1004861964
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +792,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1004861965}
   - component: {fileID: 1004861966}
-  - component: {fileID: 1004861967}
   m_Layer: 0
   m_Name: SpitMaker
   m_TagString: Untagged
@@ -861,23 +828,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 0
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 1
-  shootIntervalSecods: 1
-  shootDelaySeconds: 2
   isActive: 0
---- !u!114 &1004861967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004861964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001f6140580aada4192143994c135009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7264697035596374677, guid: 1b4c18ed6b1894d498617472b89df5e8, type: 3}
+  shootIntervalSeconds: 0.5
 --- !u!1 &1027685224
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +840,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1027685225}
   - component: {fileID: 1027685227}
-  - component: {fileID: 1027685226}
   m_Layer: 0
   m_Name: SpitMaker (4)
   m_TagString: Untagged
@@ -911,19 +862,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254124084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5}
---- !u!114 &1027685226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027685224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001f6140580aada4192143994c135009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7264697035596374677, guid: 1b4c18ed6b1894d498617472b89df5e8, type: 3}
 --- !u!114 &1027685227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,10 +876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 2
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 0
-  shootIntervalSecods: 1
-  shootDelaySeconds: 2
   isActive: 0
+  shootIntervalSeconds: 0.5
 --- !u!1 &1140932401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673951742}
   - component: {fileID: 1673951744}
-  - component: {fileID: 1673951743}
   m_Layer: 0
   m_Name: SpitMaker (3)
   m_TagString: Untagged
@@ -1265,19 +1200,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 254124084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5}
---- !u!114 &1673951743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673951741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001f6140580aada4192143994c135009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7264697035596374677, guid: 1b4c18ed6b1894d498617472b89df5e8, type: 3}
 --- !u!114 &1673951744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,10 +1214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 2
   bullet: {fileID: 2609838048198580613, guid: ac80b063f7eb3ce4982a614201398582, type: 3}
-  autoShoot: 0
-  shootIntervalSecods: 1
-  shootDelaySeconds: 2
   isActive: 0
+  shootIntervalSeconds: 0.5
 --- !u!1 &1737240285
 GameObject:
   m_ObjectHideFlags: 0

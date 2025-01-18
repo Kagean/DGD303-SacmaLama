@@ -4,53 +4,39 @@ public class Attack : MonoBehaviour
 {
     public int powerUpLevelRequirement = 0;
     public Bullet bullet;
-    Vector2 direction;
+    private Vector2 direction;
 
-    public bool autoShoot = false;
-    public float shootIntervalSecods = 0.5f;
-    public float shootDelaySeconds = 0.0f;
-    float shootTimer = 0f;
-    float delayTimer = 0f;
-
+    public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasý süre
     public bool isActive = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private float shootTimer = 0f; // Saldýrý zamanlayýcý
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
         if (!isActive)
-        {
             return;
-        }
+
+        // Yönü ayarla
         direction = (transform.localRotation * Vector2.right).normalized;
 
-        if (autoShoot)
+        // Tuþ basýlý tutuluyorsa
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (delayTimer >= shootDelaySeconds)
+            shootTimer += Time.deltaTime;
+
+            // Zamanlayýcý yeterince büyükse saldýr
+            if (shootTimer >= shootIntervalSeconds)
             {
-                if (shootTimer >= shootIntervalSecods)
-                {
-                    Shoot();
-                    shootTimer = 0;
-                }
-                else
-                {
-                    shootTimer += Time.deltaTime;
-                }
-            }
-            else
-            {
-                delayTimer += Time.deltaTime;
+                Shoot();
+                shootTimer = 0f; // Zamanlayýcýyý sýfýrla
             }
         }
+        else
+        {
+            // Tuþ býrakýldýðýnda zamanlayýcýyý sýfýrla
+            shootTimer = shootIntervalSeconds;
+        }
     }
-
 
     public void Shoot()
     {
