@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mediumbirdboomspritesheet_0: -7983550787016238880
+      mediumbirdboomspritesheet_1: -7292707921776382505
+      mediumbirdboomspritesheet_2: 4753816959733994459
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
