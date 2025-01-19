@@ -17,5 +17,6 @@ namespace Shmup
             quitButton.onClick.AddListener(() => Helpers.QuitGame());
             Time.timeScale = 1f;
         }
+
     }
 }

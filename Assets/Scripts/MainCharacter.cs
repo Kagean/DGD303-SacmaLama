@@ -1,9 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Shmup
 {
     public class PlayerController : MonoBehaviour
     {
+        public float health = 3;
+
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
         bool shoot;
@@ -19,6 +22,9 @@ namespace Shmup
         [SerializeField] float maxX = 8f;
         [SerializeField] float minY = -4f;
         [SerializeField] float maxY = 4f;
+
+        [SerializeField]
+        GameOverScreen gameOverScreen; // GameOverScreen referansý
 
         InputReader input;
 
@@ -66,8 +72,12 @@ namespace Shmup
                     {
                         attack.Shoot();
                     }
-
                 }
+            }
+
+            if (health <= 0)
+            {
+                GameOver(); // Game Over fonksiyonunu çaðýr
             }
 
         }
@@ -79,18 +89,39 @@ namespace Shmup
             {
                 if (bullet.isEnemy)
                 {
-                    Destroy(gameObject);
-                    Destroy(bullet.gameObject);
+                    health -= bullet.damage; // Merminin verdiði hasarý al
+                    Destroy(bullet.gameObject); // Mermiyi yok et
+
+                    if (health <= 0)
+                    {
+                        GameOver(); // Game Over fonksiyonunu çaðýr
+                    }
                 }
             }
 
             Destroy destroy = collision.GetComponent<Destroy>();
             if (destroy != null)
             {
-                Destroy(gameObject);
+                GameOver(); // Oyuncuyu yok et ve Game Over
                 Destroy(destroy.gameObject);
             }
         }
 
+        void GameOver()
+        {
+            // Kamera kontrolünü durdur
+            CameraController cameraController = cameraFollow.GetComponent<CameraController>();
+            if (cameraController != null)
+            {
+                cameraController.StopMoving(); // Kamera hareketini durdur
+            }
+
+            if (gameOverScreen != null)
+            {
+                gameOverScreen.Setup(0); // Game Over ekranýný hazýrla
+            }
+
+            Destroy(gameObject); // Karakteri yok et
+        }
     }
 }

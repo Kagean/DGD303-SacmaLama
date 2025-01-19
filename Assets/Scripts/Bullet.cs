@@ -2,22 +2,19 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public Vector2 direction = new Vector2 (1, 0);
+    public Vector2 direction = new Vector2(1, 0);
     public float speed = 2;
+    public float damage = 10f; // Merminin vereceði hasar
 
     public Vector2 velocity;
 
     public bool isEnemy = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, 3);
-
+        Destroy(gameObject, 3); // Mermi 3 saniye sonra yok olur
     }
 
-    // Update is called once per frame
     void Update()
     {
         velocity = direction * speed;
@@ -30,5 +27,22 @@ public class Bullet : MonoBehaviour
         pos += velocity * Time.fixedDeltaTime;
 
         transform.position = pos;
+    }
+
+    // Merminin bir nesneye çarpmasýný kontrol et
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Eðer çarpýlan nesne düþman ise, hasar ver
+        if (other.CompareTag("Enemy"))
+        {
+            // Düþman nesnesinin health script'ine eriþerek hasar uygulayýn
+            Destroy enemyHealth = other.GetComponent<Destroy>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            Destroy(gameObject); // Mermiyi yok et
+        }
     }
 }

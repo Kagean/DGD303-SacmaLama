@@ -7,7 +7,9 @@ namespace Shmup
         [SerializeField] Transform player;
         [SerializeField] float speed = 2f;
 
-        public float Speed => speed;
+        public float Speed => isMoving ? speed : 0f; // Eğer hareket durdurulmuşsa hız sıfır olur
+
+        private bool isMoving = true; // Kamera hareket kontrolü
 
         void Start()
         {
@@ -16,7 +18,20 @@ namespace Shmup
 
         private void LateUpdate()
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            if (isMoving) // Eğer kamera hareket ediyorsa
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            }
+        }
+
+        public void StopMoving()
+        {
+            isMoving = false; // Kamerayı durdur
+        }
+
+        public void StartMoving()
+        {
+            isMoving = true; // Kamerayı tekrar başlat
         }
     }
 }

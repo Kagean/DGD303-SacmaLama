@@ -32,6 +32,8 @@ namespace Shmup
                 SpawnEnemy();
                 spawnTimer = 0f;
             }
+
+
         }
 
         void SpawnEnemy()
