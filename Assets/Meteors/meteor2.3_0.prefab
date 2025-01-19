@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 946120754091113883}
   - component: {fileID: 3202674775760408651}
-  - component: {fileID: 8301588602174542913}
+  - component: {fileID: -3561212569596155047}
   - component: {fileID: 2682262166789053470}
   - component: {fileID: 7446643265802793903}
   m_Layer: 0
   m_Name: meteor2.3_0
-  m_TagString: Enemy
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8301588602174542913
+--- !u!114 &-3561212569596155047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,12 +99,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7925464216084866357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2246b10e3f518cf4ca385a2c3395f265, type: 3}
+  m_Script: {fileID: 11500000, guid: c111872de64a4ad43be643f32669a818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBigMeteor: 0
   scoreValue: 50
-  health: 1
   explosionPrefab: {fileID: 8726763643257494634, guid: 9eda211c9bb3a1b41abe1907d86fe055, type: 3}
+  smallMeteorPrefabs: []
+  smallMeteorCount: 3
+  spawnRadius: 1
 --- !u!50 &2682262166789053470
 Rigidbody2D:
   serializedVersion: 5

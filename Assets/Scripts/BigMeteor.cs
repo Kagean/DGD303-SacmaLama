@@ -9,7 +9,7 @@ public class BigMeteor : MonoBehaviour
     public int smallMeteorCount = 3; // Oluşacak küçük meteor sayısı
     public float spawnRadius = 0.5f; // Küçük meteorlardan oluşacak yarıçap
     public float minSpeed = 2f; // Küçük meteorlara minimum hız
-    public float maxSpeed = 5f; // Küçük meteorlara maksimum hız
+    public float maxSpeed = 3f; // Küçük meteorlara maksimum hız
     public float scatterAngle = 45f; // Saçılma yönü açısı (sol tarafa eğilimli)
     public GameObject explosionPrefab;
 
