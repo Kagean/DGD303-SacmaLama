@@ -108,6 +108,7 @@ MonoBehaviour:
   smallMeteorPrefabs: []
   smallMeteorCount: 3
   spawnRadius: 1
+  speed: 3
 --- !u!50 &2682262166789053470
 Rigidbody2D:
   serializedVersion: 5

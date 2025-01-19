@@ -99,6 +99,16 @@ namespace Shmup
                 }
             }
 
+            Meteor meteor = collision.GetComponent<Meteor>();
+            if (meteor != null)
+            {
+                health -= 1; // Meteor çarpmasýyla 1 hasar al
+                if (health <= 0)
+                {
+                    GameOver(); // Game Over
+                }
+            }
+
             Destroy destroy = collision.GetComponent<Destroy>();
             if (destroy != null)
             {

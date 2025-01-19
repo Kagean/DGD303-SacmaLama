@@ -108,6 +108,7 @@ MonoBehaviour:
   smallMeteorPrefabs: []
   smallMeteorCount: 3
   spawnRadius: 1
+  speed: 3
 --- !u!58 &2938766474713314090
 CircleCollider2D:
   m_ObjectHideFlags: 0

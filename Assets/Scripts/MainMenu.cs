@@ -14,8 +14,12 @@ namespace Shmup
         void Awake()
         {
             playButton.onClick.AddListener(() => Loader.Loading(startingLevel));
-            quitButton.onClick.AddListener(() => Helpers.QuitGame());
             Time.timeScale = 1f;
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
 
     }

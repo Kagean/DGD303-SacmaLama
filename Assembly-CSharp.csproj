@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnemyType.cs" />
     <Compile Include="Assets\Scripts\BigMeteor.cs" />
-    <Compile Include="Assets\Scripts\Quit.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\UISpriteAnimation.cs" />

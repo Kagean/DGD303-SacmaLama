@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Shmup;
 using TMPro;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class Level : MonoBehaviour
 
     // Hedef öldürme sayýsýný deðiþtirebileceðiniz public bir deðiþken
     public int targetDestroiesToNextLevel = 50; // Bu sayýyý Unity editöründen deðiþtirebilirsiniz
+
+    private List<Bullet> bullets = new List<Bullet>(); // List to track bullets
 
     private void Awake()
     {
@@ -141,11 +144,12 @@ public class Level : MonoBehaviour
         }
 
         // Tüm mermileri sil
-        foreach (Bullet b in FindObjectsOfType<Bullet>())
+        foreach (Bullet b in bullets)
         {
             Debug.Log("Mermi siliniyor: " + b.gameObject.name);
             Destroy(b.gameObject);
         }
+        bullets.Clear(); // After destroying, clear the list
 
         // Öldürme sayýsýný sýfýrlýyoruz
         numDestroies = 0;
@@ -196,5 +200,11 @@ public class Level : MonoBehaviour
         {
             startNextLevel = true; // Bir sonraki bölüme geçiþ baþlat
         }
+    }
+
+    // Method to add bullets to the list when they are instantiated
+    public void AddBullet(Bullet newBullet)
+    {
+        bullets.Add(newBullet);
     }
 }
