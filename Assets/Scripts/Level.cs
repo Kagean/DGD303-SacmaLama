@@ -15,18 +15,24 @@ public class Level : MonoBehaviour
     bool startNextLevel = false;
     float nextLevelTimer = 3;
 
-    string[] levels = { "Level1", "Level2" };
+    string[] levels = { "Level1", "Level2" }; // Bölümler
     int currentlevel = 1;
 
     public int score = 0; // Puan deðiþkeni public yapýldý.
     TextMeshProUGUI scoreText;
     public GameOverScreen gameOverScreen; // GameOverScreen referansý
 
+    // Hedef öldürme sayýsýný deðiþtirebileceðiniz public bir deðiþken
+    public int targetDestroiesToNextLevel = 50; // Bu sayýyý Unity editöründen deðiþtirebilirsiniz
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+
+            // Sahne geçiþlerinde yok olmamasý için
+            DontDestroyOnLoad(gameObject);
 
             // Referanslarý doðru þekilde baðlayýn
             GameObject scoreTextObject = GameObject.Find("ScoreText");
@@ -52,16 +58,20 @@ public class Level : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Eðer daha önce bir instance varsa, yeni instance'ý yok et
         }
     }
-
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) // Örnek: "R" tuþuna basýldýðýnda sýfýrlama
         {
             ResetLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnMainMenu();
         }
 
         if (startNextLevel)
@@ -73,14 +83,6 @@ public class Level : MonoBehaviour
                 {
                     string scenename = levels[currentlevel - 1];
                     SceneManager.LoadSceneAsync(scenename);
-                }
-                else
-                {
-                    Debug.Log("Game Over!!!");
-
-                    // Game Over ekranýný göster
-                    scoreText.gameObject.SetActive(false); // Puan metnini gizle
-                    gameOverScreen.Setup(score);  // Puaný GameOver ekranýna gönderiyoruz
                 }
                 nextLevelTimer = 3;
                 startNextLevel = false;
@@ -122,30 +124,77 @@ public class Level : MonoBehaviour
     {
         Debug.Log("ResetLevel çaðrýldý.");
 
+        // Skoru ve caný sýfýrlýyoruz
+        score = 0;
+        scoreText.text = score.ToString();
+
+        // Player canýný 3'e sýfýrlýyoruz
+        if (playerController != null)
+        {
+            playerController.health = 3;
+        }
+
+        // Hearths'ý da tekrar yeniliyoruz
+        foreach (GameObject hearth in hearths)
+        {
+            hearth.SetActive(true);
+        }
+
+        // Tüm mermileri sil
         foreach (Bullet b in FindObjectsOfType<Bullet>())
         {
             Debug.Log("Mermi siliniyor: " + b.gameObject.name);
             Destroy(b.gameObject);
         }
 
+        // Öldürme sayýsýný sýfýrlýyoruz
         numDestroies = 0;
+
+        // Bir sonraki bölüme geçiþi engelliyoruz (startNextLevel'ý false yapýyoruz)
+        startNextLevel = false;
+
+        // Sahneyi yeniden yükle
         string currentSceneName = SceneManager.GetActiveScene().name;
         Debug.Log("Sahne yeniden yükleniyor: " + currentSceneName);
         SceneManager.LoadScene(currentSceneName);
     }
 
+    public void ReturnMainMenu()
+    {
+        Debug.Log("Menüye dönüldü");
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void AddDestroy()
     {
         numDestroies++;
+        Debug.Log("Destroyed: " + numDestroies);
+
+        // Eðer hedef öldürme sayýsý targetDestroiesToNextLevel deðerine ulaþýrsa, bir sonraki bölüme geçiþi baþlat
+        if (numDestroies >= targetDestroiesToNextLevel)
+        {
+            startNextLevel = true;
+        }
     }
 
     public void RemoveDestroy()
     {
         numDestroies--;
+        Debug.Log("Destroyed: " + numDestroies);
 
-        if (numDestroies == 0)
+        // Eðer hedef öldürme sayýsý targetDestroiesToNextLevel deðerine ulaþýrsa, bir sonraki bölüme geçiþi baþlat
+        if (numDestroies >= targetDestroiesToNextLevel)
         {
             startNextLevel = true;
+        }
+    }
+
+    // Bu fonksiyon, bölümü geçmek için gerekli olan koþul saðlandýðýnda çaðrýlýr
+    public void CheckLevelComplete()
+    {
+        if (numDestroies >= targetDestroiesToNextLevel) // Eðer hedef öldürme sayýsý hedefe ulaþýrsa
+        {
+            startNextLevel = true; // Bir sonraki bölüme geçiþ baþlat
         }
     }
 }
