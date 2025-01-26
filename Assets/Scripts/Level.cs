@@ -67,6 +67,16 @@ public class Level : MonoBehaviour
 
     void Update()
     {
+        // Oyuncu yoksa Game Over ekranýný göster
+        if (playerController == null)
+        {
+            if (gameOverScreen != null && !gameOverScreen.gameOverUI.activeSelf)
+            {
+                gameOverScreen.Setup(score);
+            }
+            return; // Oyuncu yoksa diðer iþlemleri yapmaya gerek yok
+        }
+
         if (Input.GetKeyDown(KeyCode.R)) // Örnek: "R" tuþuna basýldýðýnda sýfýrlama
         {
             ResetLevel();
@@ -96,26 +106,24 @@ public class Level : MonoBehaviour
             }
         }
 
-        if (playerController != null)
-        {
-            float health = playerController.health; // Saðlýk deðerini al
-            Debug.Log($"Player Health: {health}");
-        }
+        float health = playerController.health; // Saðlýk deðerini al
+        Debug.Log($"Player Health: {health}");
 
         // Saðlýk durumuna göre UI güncelle
-        if (playerController != null && playerController.health < 1)
+        if (playerController.health < 1)
         {
             Destroy(hearths[0].gameObject);
         }
-        else if (playerController != null && playerController.health < 2)
+        else if (playerController.health < 2)
         {
             Destroy(hearths[1].gameObject);
         }
-        else if (playerController != null && playerController.health < 3)
+        else if (playerController.health < 3)
         {
             Destroy(hearths[2].gameObject);
         }
     }
+
 
     public void AddScore(int amountToAdd)
     {

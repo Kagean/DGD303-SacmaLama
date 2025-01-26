@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &244085071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9135307738851475213, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
+  m_PrefabInstance: {fileID: 6418575340765481434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d4bc73c9af8bf4aa19a1fbdb59fe13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &471819653
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,16 +519,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &641755817 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3965827061140043419, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-  m_PrefabInstance: {fileID: 6418575340765481434}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &774842759 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7819667042397580574, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-  m_PrefabInstance: {fileID: 6418575340765481434}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &824401496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: gameOverScreen
       value: 
-      objectReference: {fileID: 1190318549}
+      objectReference: {fileID: 244085071}
     - target: {fileID: 1331762043585407534, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -583,11 +584,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
---- !u!1 &953546758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8174863530805138622, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-  m_PrefabInstance: {fileID: 6418575340765481434}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140932401
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,17 +635,6 @@ MonoBehaviour:
   - {fileID: 2111320106}
   smoothing: 10
   multiplier: 15
---- !u!114 &1190318549 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5928791365929685514, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-  m_PrefabInstance: {fileID: 6418575340765481434}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d4bc73c9af8bf4aa19a1fbdb59fe13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1213520131 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
@@ -1205,6 +1190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1997927370212204047, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4017666618724840077, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
       propertyPath: m_Name
       value: Level
@@ -1249,26 +1238,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5928791365929685514, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-      propertyPath: spawner
-      value: 
-      objectReference: {fileID: 1943084302}
     - target: {fileID: 8504991737075651899, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1213520131}
-    - target: {fileID: 8504991737075651899, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-      propertyPath: 'hearths.Array.data[0]'
-      value: 
-      objectReference: {fileID: 641755817}
-    - target: {fileID: 8504991737075651899, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-      propertyPath: 'hearths.Array.data[1]'
-      value: 
-      objectReference: {fileID: 953546758}
-    - target: {fileID: 8504991737075651899, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-      propertyPath: 'hearths.Array.data[2]'
-      value: 
-      objectReference: {fileID: 774842759}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

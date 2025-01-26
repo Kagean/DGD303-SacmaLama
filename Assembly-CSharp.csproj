@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\BigMeteor.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\UISpriteAnimation.cs" />
@@ -77,7 +76,6 @@
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\EnemyBuilder.cs" />
     <Compile Include="Assets\Scripts\Loading.cs" />
-    <Compile Include="Assets\Scripts\SmallMeteor.cs" />
     <Compile Include="Assets\Scripts\InputReader.cs" />
     <Compile Include="Assets\Scripts\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
