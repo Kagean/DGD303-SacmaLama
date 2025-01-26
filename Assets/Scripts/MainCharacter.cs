@@ -128,10 +128,11 @@ namespace Shmup
 
             if (gameOverScreen != null)
             {
-                gameOverScreen.Setup(0); // Game Over ekranýný hazýrla
+                gameOverScreen.Setup(); // Game Over ekranýný hazýrla
             }
 
             Destroy(gameObject); // Karakteri yok et
+            Time.timeScale = 0f;
         }
     }
 }

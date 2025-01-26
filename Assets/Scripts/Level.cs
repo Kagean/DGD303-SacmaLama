@@ -12,19 +12,14 @@ public class Level : MonoBehaviour
     public GameObject[] hearths;
     public PlayerController playerController;
 
-    uint numDestroies = 0;
     bool startNextLevel = false;
     float nextLevelTimer = 3;
-
     string[] levels = { "Level1", "Level2" }; // Bölümler
     int currentlevel = 1;
 
     public int score = 0; // Puan deðiþkeni public yapýldý.
     TextMeshProUGUI scoreText;
     public GameOverScreen gameOverScreen; // GameOverScreen referansý
-
-    // Hedef öldürme sayýsýný deðiþtirebileceðiniz public bir deðiþken
-    public int targetDestroiesToNextLevel = 50; // Bu sayýyý Unity editöründen deðiþtirebilirsiniz
 
     private List<Bullet> bullets = new List<Bullet>(); // List to track bullets
 
@@ -72,19 +67,9 @@ public class Level : MonoBehaviour
         {
             if (gameOverScreen != null && !gameOverScreen.gameOverUI.activeSelf)
             {
-                gameOverScreen.Setup(score);
+                gameOverScreen.Setup();
             }
             return; // Oyuncu yoksa diðer iþlemleri yapmaya gerek yok
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)) // Örnek: "R" tuþuna basýldýðýnda sýfýrlama
-        {
-            ResetLevel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ReturnMainMenu();
         }
 
         if (startNextLevel)
@@ -135,82 +120,31 @@ public class Level : MonoBehaviour
     {
         Debug.Log("ResetLevel çaðrýldý.");
 
-        // Skoru ve caný sýfýrlýyoruz
         score = 0;
         scoreText.text = score.ToString();
 
-        // Player canýný 3'e sýfýrlýyoruz
         if (playerController != null)
         {
             playerController.health = 3;
         }
 
-        // Hearths'ý da tekrar yeniliyoruz
         foreach (GameObject hearth in hearths)
         {
             hearth.SetActive(true);
         }
 
-        // Tüm mermileri sil
         foreach (Bullet b in bullets)
         {
-            Debug.Log("Mermi siliniyor: " + b.gameObject.name);
             Destroy(b.gameObject);
         }
-        bullets.Clear(); // After destroying, clear the list
-
-        // Öldürme sayýsýný sýfýrlýyoruz
-        numDestroies = 0;
-
-        // Bir sonraki bölüme geçiþi engelliyoruz (startNextLevel'ý false yapýyoruz)
-        startNextLevel = false;
+        bullets.Clear();
+        gameOverScreen.ReSetup();
 
         // Sahneyi yeniden yükle
         string currentSceneName = SceneManager.GetActiveScene().name;
-        Debug.Log("Sahne yeniden yükleniyor: " + currentSceneName);
         SceneManager.LoadScene(currentSceneName);
     }
 
-    public void ReturnMainMenu()
-    {
-        Debug.Log("Menüye dönüldü");
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void AddDestroy()
-    {
-        numDestroies++;
-        Debug.Log("Destroyed: " + numDestroies);
-
-        // Eðer hedef öldürme sayýsý targetDestroiesToNextLevel deðerine ulaþýrsa, bir sonraki bölüme geçiþi baþlat
-        if (numDestroies >= targetDestroiesToNextLevel)
-        {
-            startNextLevel = true;
-        }
-    }
-
-    public void RemoveDestroy()
-    {
-        numDestroies--;
-        Debug.Log("Destroyed: " + numDestroies);
-
-        // Eðer hedef öldürme sayýsý targetDestroiesToNextLevel deðerine ulaþýrsa, bir sonraki bölüme geçiþi baþlat
-        if (numDestroies >= targetDestroiesToNextLevel)
-        {
-            startNextLevel = true;
-        }
-    }
-
-    // Bu fonksiyon, bölümü geçmek için gerekli olan koþul saðlandýðýnda çaðrýlýr
-    public void CheckLevelComplete()
-    {
-        if (numDestroies >= targetDestroiesToNextLevel) // Eðer hedef öldürme sayýsý hedefe ulaþýrsa
-        {
-            startNextLevel = true; // Bir sonraki bölüme geçiþ baþlat
-        }
-    }
-
-    // Method to add bullets to the list when they are instantiated
     public void AddBullet(Bullet newBullet)
     {
         bullets.Add(newBullet);

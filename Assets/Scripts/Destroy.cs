@@ -9,7 +9,7 @@ public class Destroy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Level.Instance.AddDestroy();
+
     }
 
     // Update is called once per frame
@@ -57,8 +57,4 @@ public class Destroy : MonoBehaviour
         health -= damage;
     }
 
-    private void OnDestroy()
-    {
-        Level.Instance.RemoveDestroy();
-    }
 }

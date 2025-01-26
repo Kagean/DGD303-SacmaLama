@@ -432,17 +432,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &626843803 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5928791365929685514, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-  m_PrefabInstance: {fileID: 71307288}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d4bc73c9af8bf4aa19a1fbdb59fe13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1288170588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: gameOverScreen
       value: 
-      objectReference: {fileID: 626843803}
+      objectReference: {fileID: 0}
     - target: {fileID: 1331762043585407534, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -518,9 +507,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1735205196}
   - component: {fileID: 1735205200}
+  - component: {fileID: 1735205203}
   - component: {fileID: 1735205198}
   - component: {fileID: 1735205202}
-  - component: {fileID: 1735205203}
   m_Layer: 0
   m_Name: meteor
   m_TagString: Meteor
@@ -675,7 +664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBigMeteor: 1
-  scoreValue: 50
+  scoreValue: 100
+  health: 3
   explosionPrefab: {fileID: 8726763643257494634, guid: 9eda211c9bb3a1b41abe1907d86fe055, type: 3}
   smallMeteorPrefabs:
   - {fileID: 5435332611558314605, guid: d8dbb315806960747ba0e9d8ea4c1639, type: 3}
@@ -683,7 +673,9 @@ MonoBehaviour:
   - {fileID: 7925464216084866357, guid: 69f0b5f895d7a0d44bf76d071d6ad74a, type: 3}
   smallMeteorCount: 3
   spawnRadius: 1
-  speed: 5
+  minSpeed: 2
+  maxSpeed: 3
+  scatterAngle: 45
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
