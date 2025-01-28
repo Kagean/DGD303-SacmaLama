@@ -47,8 +47,8 @@ public class Level : MonoBehaviour
     {
         scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
         playerController = GameObject.FindWithTag("Player")?.GetComponent<PlayerController>();
-        gameOverScreen = GameObject.FindObjectOfType<GameOverScreen>();
-        pauseScreen = GameObject.FindObjectOfType<PauseMenu>(); // Pause ekranýný bul
+        gameOverScreen = GameObject.FindFirstObjectByType<GameOverScreen>();
+        pauseScreen = GameObject.FindFirstObjectByType<PauseMenu>();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

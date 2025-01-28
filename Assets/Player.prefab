@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  invincibleTime: 1
+  blinkInterval: 0.15
   speed: 5
   smoothness: 0.1
   model: {fileID: 1317055930054875672}
