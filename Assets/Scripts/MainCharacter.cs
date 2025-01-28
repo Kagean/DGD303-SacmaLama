@@ -8,8 +8,9 @@ namespace Shmup
         public float health = 3;
         bool invincible = false;
         float invincibleTimer = 0;
-        float invincibleTime = 2;
-        public int Playerdamage = 1;
+        public float invincibleTime = 2;
+        float blinkTimer = 0;
+        public float blinkInterval = 0.3f;
 
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
@@ -34,12 +35,20 @@ namespace Shmup
 
         Vector3 currentVelocity;
         Vector3 targetPosition;
+        SpriteRenderer spriteRenderer;
 
         void Start()
         {
             input = GetComponent<InputReader>();
             targetPosition = transform.position;
             attacks = transform.GetComponentsInChildren<Attack>();
+            spriteRenderer = model.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = model.AddComponent<SpriteRenderer>();
+            }
+
             foreach (Attack attack in attacks)
             {
                 attack.isActive = true;
@@ -81,14 +90,20 @@ namespace Shmup
 
             if (invincible)
             {
-                if (invincibleTimer >= invincibleTime)
+                if (invincibleTimer <= 0)
                 {
-                    invincibleTimer = 0;
                     invincible = false;
+                    spriteRenderer.enabled = true; // Karakteri görünür yap
                 }
                 else
                 {
-                    invincibleTimer += Time.deltaTime;
+                    invincibleTimer -= Time.deltaTime;
+                    blinkTimer -= Time.deltaTime;
+                    if (blinkTimer <= 0)
+                    {
+                        spriteRenderer.enabled = !spriteRenderer.enabled; // Görünürlüðü deðiþtir
+                        blinkTimer = blinkInterval;
+                    }
                 }
             }
 
@@ -135,6 +150,7 @@ namespace Shmup
             {
                 invincible = true;
                 invincibleTimer = invincibleTime;
+                blinkTimer = blinkInterval;
             }
         }
 
