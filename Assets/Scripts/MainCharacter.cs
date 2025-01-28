@@ -6,6 +6,10 @@ namespace Shmup
     public class PlayerController : MonoBehaviour
     {
         public float health = 3;
+        bool invincible = false;
+        float invincibleTimer = 0;
+        float invincibleTime = 2;
+        public int Playerdamage = 1;
 
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
@@ -75,45 +79,62 @@ namespace Shmup
                 }
             }
 
+            if (invincible)
+            {
+                if (invincibleTimer >= invincibleTime)
+                {
+                    invincibleTimer = 0;
+                    invincible = false;
+                }
+                else
+                {
+                    invincibleTimer += Time.deltaTime;
+                }
+            }
+
             if (health <= 0)
             {
                 GameOver(); // Game Over fonksiyonunu çaðýr
             }
-
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                if (bullet.isEnemy)
-                {
-                    health -= bullet.damage; // Merminin verdiði hasarý al
-                    Destroy(bullet.gameObject); // Mermiyi yok et
+            if (invincible) return;
 
-                    if (health <= 0)
-                    {
-                        GameOver(); // Game Over fonksiyonunu çaðýr
-                    }
-                }
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (bullet != null && bullet.isEnemy)
+            {
+                TakeDamage(bullet.damage);
+                Destroy(bullet.gameObject);
             }
 
             Meteor meteor = collision.GetComponent<Meteor>();
             if (meteor != null)
             {
-                health -= 1; // Meteor çarpmasýyla 1 hasar al
-                if (health <= 0)
-                {
-                    GameOver(); // Game Over
-                }
+                TakeDamage(1);
             }
 
             Destroy destroy = collision.GetComponent<Destroy>();
             if (destroy != null)
             {
-                GameOver(); // Oyuncuyu yok et ve Game Over
-                Destroy(destroy.gameObject);
+                TakeDamage(1);
+            }
+        }
+
+        void TakeDamage(int damage)
+        {
+            if (invincible) return;
+
+            health -= damage;
+            if (health <= 0)
+            {
+                GameOver();
+            }
+            else
+            {
+                invincible = true;
+                invincibleTimer = invincibleTime;
             }
         }
 

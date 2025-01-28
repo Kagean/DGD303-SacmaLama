@@ -5,15 +5,20 @@ namespace Shmup
 {
     public class GameOverScreen : MonoBehaviour
     {
-        public GameObject gameOverUI; // Game Over ekraný referansý
+        public GameObject GameOverPanel; // Game Over ekraný referansý
+
+        // Game Over ekranýný açan metod
         public void Setup()
         {
-            gameOverUI.SetActive(true); // Game Over ekranýný görünür yap
+            GameOverPanel.SetActive(true); // Game Over ekranýný görünür yap
+            Time.timeScale = 0f; // Oyunu durdur
         }
 
-        public void ReSetup()
+        // Game Over ekranýný kapatan metod
+        public void UnSetup()
         {
-            gameOverUI.SetActive(false); // Game Over ekranýný görünür yap
+            GameOverPanel.SetActive(false); // Game Over ekranýný görünmez yap
+            Time.timeScale = 1f; // Oyunu devam ettir
         }
     }
 }

@@ -7,142 +7,219 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    public static Level Instance;
+    public static Level Instance { get; private set; }
 
     public GameObject[] hearths;
+    public GameObject hearthPrefab; // Caný temsil eden prefab
     public PlayerController playerController;
 
-    bool startNextLevel = false;
-    float nextLevelTimer = 3;
-    string[] levels = { "Level1", "Level2" }; // Bölümler
-    int currentlevel = 1;
+    private bool startNextLevel = false;
+    private float nextLevelTimer = 3f;
+    private readonly string[] levels = { "Level1", "Level2" };
+    private int currentLevel = 1;
 
-    public int score = 0; // Puan deðiþkeni public yapýldý.
-    TextMeshProUGUI scoreText;
-    public GameOverScreen gameOverScreen; // GameOverScreen referansý
+    public int score = 0;
+    private TextMeshProUGUI scoreText;
+    public GameOverScreen gameOverScreen;
+    public PauseMenu pauseScreen; // Pause ekraný referansý
 
-    private List<Bullet> bullets = new List<Bullet>(); // List to track bullets
+    private List<Bullet> bullets = new List<Bullet>();
+
+    private const float InitialHealth = 3f;
+    private const float NextLevelDelay = 3f;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-
-            // Sahne geçiþlerinde yok olmamasý için
             DontDestroyOnLoad(gameObject);
-
-            // Referanslarý doðru þekilde baðlayýn
-            GameObject scoreTextObject = GameObject.Find("ScoreText");
-            if (scoreTextObject != null)
-            {
-                scoreText = scoreTextObject.GetComponent<TextMeshProUGUI>();
-            }
-            else
-            {
-                Debug.LogError("ScoreText GameObject bulunamadý!");
-            }
-
-            // Player referansýný baðla
-            GameObject playerObject = GameObject.FindWithTag("Player");
-            if (playerObject != null)
-            {
-                playerController = playerObject.GetComponent<PlayerController>();
-            }
-            else
-            {
-                Debug.LogError("Player GameObject bulunamadý!");
-            }
+            InitializeReferences();
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
-            Destroy(gameObject); // Eðer daha önce bir instance varsa, yeni instance'ý yok et
+            Destroy(gameObject);
         }
     }
 
-    void Update()
+    private void InitializeReferences()
     {
-        // Oyuncu yoksa Game Over ekranýný göster
+        scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+        playerController = GameObject.FindWithTag("Player")?.GetComponent<PlayerController>();
+        gameOverScreen = GameObject.FindObjectOfType<GameOverScreen>();
+        pauseScreen = GameObject.FindObjectOfType<PauseMenu>(); // Pause ekranýný bul
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        InitializeReferences();
+        if (gameOverScreen != null && gameOverScreen.GameOverPanel.activeSelf)
+        {
+            gameOverScreen.UnSetup();
+        }
+        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf) // Use the public property
+        {
+            pauseScreen.Resume();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        if (gameOverScreen != null && gameOverScreen.GameOverPanel.activeSelf)
+        {
+            gameOverScreen.UnSetup();
+        }
+        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf) // Use the public property
+        {
+            pauseScreen.Resume();
+        }
+    }
+
+    private void Update()
+    {
         if (playerController == null)
         {
-            if (gameOverScreen != null && !gameOverScreen.gameOverUI.activeSelf)
-            {
-                gameOverScreen.Setup();
-            }
-            return; // Oyuncu yoksa diðer iþlemleri yapmaya gerek yok
+            ShowGameOverScreen();
+            return;
         }
 
+        HandleNextLevelTransition();
+        UpdateHealthUI();
+    }
+
+    private void ShowGameOverScreen()
+    {
+        if (gameOverScreen != null && !gameOverScreen.GameOverPanel.activeSelf)
+        {
+            gameOverScreen.Setup();
+        }
+    }
+
+    private void HandleNextLevelTransition()
+    {
         if (startNextLevel)
         {
             if (nextLevelTimer <= 0)
             {
-                currentlevel++;
-                if (currentlevel <= levels.Length)
-                {
-                    string scenename = levels[currentlevel - 1];
-                    SceneManager.LoadSceneAsync(scenename);
-                }
-                nextLevelTimer = 3;
-                startNextLevel = false;
+                LoadNextLevel();
             }
             else
             {
                 nextLevelTimer -= Time.deltaTime;
             }
         }
-
-        float health = playerController.health; // Saðlýk deðerini al
-        Debug.Log($"Player Health: {health}");
-
-        // Saðlýk durumuna göre UI güncelle
-        if (playerController.health < 1)
-        {
-            Destroy(hearths[0].gameObject);
-        }
-        else if (playerController.health < 2)
-        {
-            Destroy(hearths[1].gameObject);
-        }
-        else if (playerController.health < 3)
-        {
-            Destroy(hearths[2].gameObject);
-        }
     }
 
+    private void LoadNextLevel()
+    {
+        currentLevel++;
+        if (currentLevel <= levels.Length)
+        {
+            string sceneName = levels[currentLevel - 1];
+            SceneManager.LoadSceneAsync(sceneName);
+        }
+        nextLevelTimer = NextLevelDelay;
+        startNextLevel = false;
+    }
+
+    private void UpdateHealthUI()
+    {
+        float health = playerController.health;
+        Debug.Log($"Player Health: {health}");
+
+        for (int i = 0; i < hearths.Length; i++)
+        {
+            if (playerController.health < i + 1 && hearths[i] != null)
+            {
+                Destroy(hearths[i].gameObject);
+                hearths[i] = null;
+            }
+        }
+    }
 
     public void AddScore(int amountToAdd)
     {
         score += amountToAdd;
-        scoreText.text = score.ToString();
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString();
+        }
     }
 
     public void ResetLevel()
     {
-        Debug.Log("ResetLevel çaðrýldý.");
-
         score = 0;
-        scoreText.text = score.ToString();
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString();
+        }
 
         if (playerController != null)
         {
-            playerController.health = 3;
+            playerController.health = InitialHealth;
         }
 
-        foreach (GameObject hearth in hearths)
+        // Eski hearths elemanlarýný temizle
+        if (hearths != null)
         {
-            hearth.SetActive(true);
+            foreach (GameObject hearth in hearths)
+            {
+                if (hearth != null)
+                {
+                    Destroy(hearth);
+                }
+            }
         }
+
+        // Hearths klasörünü bul
+        GameObject hearthsParent = GameObject.Find("Hearths");
+        if (hearthsParent == null)
+        {
+            Debug.LogError("Hearths parent object not found!");
+            return;
+        }
+
+        // Yeni hearths elemanlarýný oluþtur ve Hearths klasörüne yerleþtir
+        hearths = new GameObject[(int)InitialHealth];
+        hearths[0] = Instantiate(hearthPrefab, hearthsParent.transform);
+        hearths[1] = Instantiate(hearthPrefab, hearthsParent.transform);
+        hearths[2] = Instantiate(hearthPrefab, hearthsParent.transform);
+
+        // Kalplerin pozisyonlarýný ayarla
+        RectTransform rt0 = hearths[0].GetComponent<RectTransform>();
+        RectTransform rt1 = hearths[1].GetComponent<RectTransform>();
+        RectTransform rt2 = hearths[2].GetComponent<RectTransform>();
+
+        if (rt0 != null) rt0.anchoredPosition = new Vector2(120f, 0f);
+        if (rt1 != null) rt1.anchoredPosition = new Vector2(210f, 0f);
+        if (rt2 != null) rt2.anchoredPosition = new Vector2(300f, 0f);
 
         foreach (Bullet b in bullets)
         {
-            Destroy(b.gameObject);
+            if (b != null)
+            {
+                Destroy(b.gameObject);
+            }
         }
         bullets.Clear();
-        gameOverScreen.ReSetup();
 
-        // Sahneyi yeniden yükle
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
+
+        if (gameOverScreen != null && gameOverScreen.GameOverPanel.activeSelf)
+        {
+            gameOverScreen.UnSetup();
+        }
+        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf)
+        {
+            pauseScreen.Resume();
+        }
     }
 
     public void AddBullet(Bullet newBullet)

@@ -1,3 +1,4 @@
+using Shmup;
 using UnityEngine;
 
 public class Destroy : MonoBehaviour
@@ -55,6 +56,11 @@ public class Destroy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+    }
+
+    public void PlayerDamage(float Playerdamage)
+    {
+        health -= Playerdamage;
     }
 
 }

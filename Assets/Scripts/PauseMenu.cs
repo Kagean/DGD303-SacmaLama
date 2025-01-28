@@ -6,6 +6,9 @@ namespace Shmup
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] GameObject pauseMenuUI;
+        [SerializeField] GameObject gameOverPanel;
+
+        public GameObject PauseMenuUI => pauseMenuUI;
 
         public void Pause()
         {

@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public Vector2 direction = new Vector2(1, 0);
     public float speed = 2;
-    public int damage = 10; // Merminin vereceði hasar
+    public int damage = 1; // Merminin vereceði hasar
 
     public Vector2 velocity;
 
