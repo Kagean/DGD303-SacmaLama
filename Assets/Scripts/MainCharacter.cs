@@ -124,6 +124,9 @@ namespace Shmup
             {
                 GameOver(); // Game Over fonksiyonunu çaðýr
             }
+
+            // Hýzý 8f ile sýnýrla
+            speed = Mathf.Min(speed, 8f);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -169,7 +172,7 @@ namespace Shmup
                 }
                 if (powerUp.increaseSpeed)
                 {
-                    speed += 1;
+                    speed = Mathf.Min(speed + 1, 8f); // Hýzý artýr ve 8f ile sýnýrla
                 }
                 if (powerUp.increaseHealth && health < 3) // Can azalmýþsa can ekle
                 {
@@ -205,7 +208,7 @@ namespace Shmup
             }
 
             health -= damage;
-            speed = Mathf.Max(baseSpeed, speed - 1); // Hýzý azalt ve temel hýzýn altýna düþmediðinden emin ol
+            speed = Mathf.Max(baseSpeed, speed - 2); // Hýzý azalt ve temel hýzýn altýna düþmediðinden emin ol
             if (health <= 0)
             {
                 GameOver();

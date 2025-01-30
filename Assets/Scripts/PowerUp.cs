@@ -4,7 +4,6 @@ namespace Shmup
 {
     public class PowerUp : MonoBehaviour
     {
-        
         public bool activateShield;
         public bool activateDoubleShot;
         public bool increaseSpeed;
@@ -14,10 +13,9 @@ namespace Shmup
         public bool Joker;
         public int pointValue;
 
-
         void Start()
         {
-            Destroy(gameObject, 5);
+            Destroy(gameObject, 10);
         }
 
         // Update is called once per frame

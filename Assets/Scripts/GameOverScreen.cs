@@ -10,8 +10,11 @@ namespace Shmup
         // Game Over ekranýný açan metod
         public void Setup()
         {
-            GameOverPanel.SetActive(true); // Game Over ekranýný görünür yap
-            Time.timeScale = 0f; // Oyunu durdur
+            if (GameOverPanel != null)
+            {
+                GameOverPanel.SetActive(true);
+                Time.timeScale = 0f; // Oyunu duraklat
+            }
         }
 
         // Game Over ekranýný kapatan metod

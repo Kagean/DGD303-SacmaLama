@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
     public Bullet bullet;
     private Vector2 direction;
     public bool autoShoot = false;
-    public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasýndaki süre
+    public float shootIntervalSeconds = 0.3f; // Ýki saldýrý arasýndaki süre
     public float shootDelaySeconds = 0.0f;
     float shootTimer = 0.0f;
     float delayTimer = 0.0f;
@@ -75,5 +75,9 @@ public class Attack : MonoBehaviour
     public void UpdateAttackSpeed(float multiplier)
     {
         shootIntervalSeconds /= multiplier; // Sadece manuel saldýrýlar için saldýrý süresini güncelle
+        if (shootIntervalSeconds < 0.1f)
+        {
+            shootIntervalSeconds = 0.1f; // Saldýrý süresini minimum 0.1f olarak ayarla
+        }
     }
 }

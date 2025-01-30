@@ -83,7 +83,7 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        if (playerController == null)
+        if (playerController == null || playerController.health <= 0)
         {
             ShowGameOverScreen();
             return;
