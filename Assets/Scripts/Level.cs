@@ -128,6 +128,15 @@ public class Level : MonoBehaviour
         startNextLevel = false;
     }
 
+    public void OnHealthIncreasePowerUp()
+    {
+        if (playerController != null)
+        {
+            playerController.IncreaseHealth(1); // Caný 1 artýr
+            UpdateHealthUI(); // Can barýný güncelle
+        }
+    }
+
     private void UpdateHealthUI()
     {
         float health = playerController.health;
@@ -139,6 +148,20 @@ public class Level : MonoBehaviour
             {
                 Destroy(hearths[i].gameObject);
                 hearths[i] = null;
+            }
+            else if (playerController.health >= i + 1 && hearths[i] == null)
+            {
+                // Hearths klasörünü bul
+                GameObject hearthsParent = GameObject.Find("Hearths");
+                if (hearthsParent != null)
+                {
+                    hearths[i] = Instantiate(hearthPrefab, hearthsParent.transform);
+                    RectTransform rt = hearths[i].GetComponent<RectTransform>();
+                    if (rt != null)
+                    {
+                        rt.anchoredPosition = new Vector2(120f + (i * 90f), 0f);
+                    }
+                }
             }
         }
     }

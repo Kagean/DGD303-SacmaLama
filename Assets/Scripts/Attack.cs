@@ -5,15 +5,20 @@ public class Attack : MonoBehaviour
     public int powerUpLevelRequirement = 0;
     public Bullet bullet;
     private Vector2 direction;
-
     public bool autoShoot = false;
-    public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasý süre
+    public float shootIntervalSeconds = 0.5f; // Ýki saldýrý arasýndaki süre
     public float shootDelaySeconds = 0.0f;
     float shootTimer = 0.0f;
     float delayTimer = 0.0f;
     public bool isActive = false;
-
     private float shootCooldown = 0f; // Soðuma süresi
+
+    private float originalShootIntervalSeconds; // Orijinal saldýrý süresi
+
+    void Start()
+    {
+        originalShootIntervalSeconds = shootIntervalSeconds; // Orijinal saldýrý süresini sakla
+    }
 
     void Update()
     {
@@ -43,7 +48,7 @@ public class Attack : MonoBehaviour
         {
             if (delayTimer >= shootDelaySeconds)
             {
-                if (shootTimer >= shootIntervalSeconds)
+                if (shootTimer >= originalShootIntervalSeconds) // Orijinal saldýrý süresini kullan
                 {
                     Shoot();
                     shootTimer = 0f;
@@ -65,5 +70,10 @@ public class Attack : MonoBehaviour
         GameObject go = Instantiate(bullet.gameObject, transform.position, Quaternion.identity);
         Bullet gobullet = go.GetComponent<Bullet>();
         gobullet.direction = direction;
+    }
+
+    public void UpdateAttackSpeed(float multiplier)
+    {
+        shootIntervalSeconds /= multiplier; // Sadece manuel saldýrýlar için saldýrý süresini güncelle
     }
 }

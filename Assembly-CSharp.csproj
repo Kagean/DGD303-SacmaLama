@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\UISpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Bounce.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\ParallaxController.cs" />
     <Compile Include="Assets\Scripts\MainCharacter.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Loading.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\InputReader.cs" />
+    <Compile Include="Assets\Scripts\MoveRightToLeft.cs" />
     <Compile Include="Assets\Scripts\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
