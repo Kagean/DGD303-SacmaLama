@@ -13,7 +13,7 @@ namespace Shmup
         float blinkTimer = 0;
         public float blinkInterval = 0.3f;
 
-        [SerializeField] float baseSpeed = 5f; // Temel hýz
+        [SerializeField] float baseSpeed = 5f;
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
         bool shoot;
@@ -34,7 +34,7 @@ namespace Shmup
         [SerializeField] float maxY = 4f;
 
         [SerializeField]
-        GameOverScreen gameOverScreen; // GameOverScreen referansý
+        GameOverScreen gameOverScreen;
 
         InputReader input;
 
@@ -42,9 +42,9 @@ namespace Shmup
         Vector3 targetPosition;
         SpriteRenderer spriteRenderer;
 
-        private Level level; // Level referansý
+        private Level level;
 
-        private float attackSpeedMultiplier = 1f; // Saldýrý hýzý çarpaný
+        private float attackSpeedMultiplier = 1f;
 
         void Start()
         {
@@ -69,7 +69,7 @@ namespace Shmup
                 }
             }
 
-            level = Level.Instance; // Level referansýný al
+            level = Level.Instance;
         }
 
         void Update()
@@ -106,7 +106,7 @@ namespace Shmup
                 if (invincibleTimer <= 0)
                 {
                     invincible = false;
-                    spriteRenderer.enabled = true; // Karakteri görünür yap
+                    spriteRenderer.enabled = true;
                 }
                 else
                 {
@@ -114,7 +114,7 @@ namespace Shmup
                     blinkTimer -= Time.deltaTime;
                     if (blinkTimer <= 0)
                     {
-                        spriteRenderer.enabled = !spriteRenderer.enabled; // Görünürlüðü deðiþtir
+                        spriteRenderer.enabled = !spriteRenderer.enabled;
                         blinkTimer = blinkInterval;
                     }
                 }
@@ -122,10 +122,9 @@ namespace Shmup
 
             if (health <= 0)
             {
-                GameOver(); // Game Over fonksiyonunu çaðýr
+                GameOver();
             }
 
-            // Hýzý 8f ile sýnýrla
             speed = Mathf.Min(speed, 8f);
         }
 
@@ -208,7 +207,7 @@ namespace Shmup
             }
 
             health -= damage;
-            speed = baseSpeed; // Hýzý temel hýza geri döndür
+            speed = baseSpeed;
             if (health <= 0)
             {
                 GameOver();
@@ -223,19 +222,19 @@ namespace Shmup
 
         void GameOver()
         {
-            // Kamera kontrolünü durdur
+
             CameraController cameraController = cameraFollow.GetComponent<CameraController>();
             if (cameraController != null)
             {
-                cameraController.StopMoving(); // Kamera hareketini durdur
+                cameraController.StopMoving();
             }
 
             if (gameOverScreen != null)
             {
-                gameOverScreen.Setup(); // Game Over ekranýný hazýrla
+                gameOverScreen.Setup();
             }
 
-            Destroy(gameObject); // Karakteri yok et
+            Destroy(gameObject);
             Time.timeScale = 0f;
         }
 
@@ -268,7 +267,7 @@ namespace Shmup
 
         public void IncreaseHealth(float amount)
         {
-            health = Mathf.Min(health + amount, maxHealth); // Caný artýr ve maksimum deðeri aþma
+            health = Mathf.Min(health + amount, maxHealth);
         }
 
         public void IncreaseAttackSpeed(float amount)
@@ -297,7 +296,6 @@ namespace Shmup
 
         void Die()
         {
-            // Nesne yok olur
             Destroy(gameObject);
         }
     }

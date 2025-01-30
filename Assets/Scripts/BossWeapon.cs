@@ -13,7 +13,7 @@ namespace Shmup
 
         void Start()
         {
-            // Player tagli GameObject'i bul ve playerTransform olarak ayarla
+
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {

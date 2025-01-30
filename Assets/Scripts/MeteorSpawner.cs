@@ -4,26 +4,25 @@ namespace Shmup
 {
     public class MeteorSpawner : MonoBehaviour
     {
-        public GameObject meteorPrefab; // Meteor prefab referansý
-        public float spawnInterval1 = 2.0f; // Ýlk zaman aralýðý
-        public float spawnInterval2 = 5.0f; // Ýkinci zaman aralýðý
+        public GameObject meteorPrefab;
+        public float spawnInterval1 = 2.0f;
+        public float spawnInterval2 = 5.0f;
 
         private float nextSpawnTime1;
         private float nextSpawnTime2;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             nextSpawnTime1 = Time.time + spawnInterval1;
             nextSpawnTime2 = Time.time + spawnInterval2;
         }
 
-        // Update is called once per frame
+
         void Update()
         {
             if (BossStage.Instance != null && BossStage.Instance.bossSpawned)
             {
-                return; // Boss spawnlandýktan sonra meteor spawnlanmasýný durdur
+                return;
             }
 
             if (Time.time >= nextSpawnTime1)

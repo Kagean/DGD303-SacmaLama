@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
     public static Level Instance { get; private set; }
 
     public GameObject[] hearths;
-    public GameObject hearthPrefab; // Caný temsil eden prefab
+    public GameObject hearthPrefab;
     public PlayerController playerController;
 
     private bool startNextLevel = false;
@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
     public int score = 0;
     private TextMeshProUGUI scoreText;
     public GameOverScreen gameOverScreen;
-    public PauseMenu pauseScreen; // Pause ekraný referansý
+    public PauseMenu pauseScreen;
 
     private List<Bullet> bullets = new List<Bullet>();
 
@@ -58,7 +58,7 @@ public class Level : MonoBehaviour
         {
             gameOverScreen.UnSetup();
         }
-        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf) // Use the public property
+        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf)
         {
             pauseScreen.Resume();
         }
@@ -75,7 +75,7 @@ public class Level : MonoBehaviour
         {
             gameOverScreen.UnSetup();
         }
-        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf) // Use the public property
+        if (pauseScreen != null && pauseScreen.PauseMenuUI.activeSelf)
         {
             pauseScreen.Resume();
         }
@@ -132,8 +132,8 @@ public class Level : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.IncreaseHealth(1); // Caný 1 artýr
-            UpdateHealthUI(); // Can barýný güncelle
+            playerController.IncreaseHealth(1);
+            UpdateHealthUI();
         }
     }
 
@@ -151,7 +151,6 @@ public class Level : MonoBehaviour
             }
             else if (playerController.health >= i + 1 && hearths[i] == null)
             {
-                // Hearths klasörünü bul
                 GameObject hearthsParent = GameObject.Find("Hearths");
                 if (hearthsParent != null)
                 {
@@ -188,7 +187,6 @@ public class Level : MonoBehaviour
             playerController.health = InitialHealth;
         }
 
-        // Eski hearths elemanlarýný temizle
         if (hearths != null)
         {
             foreach (GameObject hearth in hearths)
@@ -200,7 +198,6 @@ public class Level : MonoBehaviour
             }
         }
 
-        // Hearths klasörünü bul
         GameObject hearthsParent = GameObject.Find("Hearths");
         if (hearthsParent == null)
         {
@@ -208,13 +205,11 @@ public class Level : MonoBehaviour
             return;
         }
 
-        // Yeni hearths elemanlarýný oluþtur ve Hearths klasörüne yerleþtir
         hearths = new GameObject[(int)InitialHealth];
         hearths[0] = Instantiate(hearthPrefab, hearthsParent.transform);
         hearths[1] = Instantiate(hearthPrefab, hearthsParent.transform);
         hearths[2] = Instantiate(hearthPrefab, hearthsParent.transform);
 
-        // Kalplerin pozisyonlarýný ayarla
         RectTransform rt0 = hearths[0].GetComponent<RectTransform>();
         RectTransform rt1 = hearths[1].GetComponent<RectTransform>();
         RectTransform rt2 = hearths[2].GetComponent<RectTransform>();

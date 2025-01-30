@@ -12,7 +12,7 @@ namespace Shmup
             public float multiplier = 15f;
         }
 
-        [SerializeField] ParallaxLayer[] layers; // Array of background layers
+        [SerializeField] ParallaxLayer[] layers;
 
         Transform cam;
         float previousCamPosX;

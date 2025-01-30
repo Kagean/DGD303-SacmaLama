@@ -13,9 +13,9 @@ namespace Shmup
 
     public class PowerUpSpawner : MonoBehaviour
     {
-        public PowerUpEntry[] powerUps; // Power-up prefab ve aðýrlýk referanslarý
-        public Transform spawnPoint; // Power-up spawn noktasý
-        public float spawnInterval = 20f; // Power-up spawn aralýðý
+        public PowerUpEntry[] powerUps;
+        public Transform spawnPoint;
+        public float spawnInterval = 20f;
 
         private void Start()
         {
@@ -56,7 +56,7 @@ namespace Shmup
                 randomValue -= powerUp.weight;
             }
 
-            return powerUps[0].prefab; // Default olarak ilk power-up'ý döndür
+            return powerUps[0].prefab;
         }
     }
 }

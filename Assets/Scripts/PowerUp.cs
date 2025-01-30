@@ -17,8 +17,6 @@ namespace Shmup
         {
             Destroy(gameObject, 10);
         }
-
-        // Update is called once per frame
         void Update()
         {
         

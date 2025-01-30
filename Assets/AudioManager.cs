@@ -40,20 +40,17 @@ namespace Shmup
 
         private void OnDestroy()
         {
-            // Sahne deðiþikliklerini dinlemeyi býrak
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            // Sahne adýný kontrol et ve uygun müziði çal
             CheckAndPlayMusic();
         }
 
         private void CheckAndPlayMusic()
         {
             string sceneName = SceneManager.GetActiveScene().name;
-            Debug.Log($"Yüklenen sahne: {sceneName}");
 
             if (sceneName == "Level1" || sceneName == "Level2")
             {
@@ -67,14 +64,12 @@ namespace Shmup
 
         private void PlayMainMenuMusic()
         {
-            Debug.Log("Ana menü müziði çalýnýyor.");
             musicSource.clip = MainMenuMusic;
             musicSource.Play();
         }
 
         private void PlayBackgroundMusic()
         {
-            Debug.Log("Arkaplan müziði çalýnýyor.");
             musicSource.clip = background;
             musicSource.Play();
         }

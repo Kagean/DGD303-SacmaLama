@@ -4,13 +4,13 @@ namespace Shmup
 {
     public class Boss : MonoBehaviour
     {
-        public float bosshealth = 10f; // Boss'un başlangıç sağlığı
-        public BossWeapon[] weapons; // Boss'un sahip olduğu silahlar
-        public float activateWeaponsHealthThreshold = 50f; // Silahların etkinleşeceği sağlık eşiği
+        public float bosshealth = 10f; 
+        public BossWeapon[] weapons; 
+        public float activateWeaponsHealthThreshold = 50f; 
 
         void Update()
         {
-            // Sağlık belirli bir seviyenin altına düştüğünde silahları etkinleştir
+
             if (bosshealth <= activateWeaponsHealthThreshold)
             {
                 ActivateWeapons();
@@ -36,11 +36,11 @@ namespace Shmup
 
         private void Die()
         {
-            // Boss'un ölme işlemleri burada yapılabilir
+
             Debug.Log("Boss öldü!");
             if (Level.Instance != null)
             {
-                Level.Instance.AddScore(2000); // Boss öldüğünde 100 puan ekle
+                Level.Instance.AddScore(2000);
                 Level.Instance.OnBossDefeated();
             }
             Destroy(gameObject);
@@ -48,12 +48,12 @@ namespace Shmup
 
         private void OnTriggerEnter(Collider other)
         {
-            // Çarptığı nesnenin oyuncunun mermisi olup olmadığını kontrol et
+
             Bullet bullet = other.GetComponent<Bullet>();
             if (bullet != null && !bullet.isEnemy && !bullet.isBossWeapon)
             {
                 TakeDamage(bullet.damage);
-                Destroy(other.gameObject); // Mermiyi yok et
+                Destroy(other.gameObject);
             }
         }
     }

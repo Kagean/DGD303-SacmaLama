@@ -5,64 +5,64 @@ public class Meteor : MonoBehaviour
 {
     public bool isMediumBird = false;
     public bool isBox = false;
-    public bool isBigMeteor = false; // Meteor türünü belirler
-    public int scoreValue = 50; // Yok edildiğinde kazandıracağı skor
-    public float health = 1f; // Meteorun başlangıç sağlığı
-    public GameObject explosionPrefab; // Patlama animasyonu prefab'i
-    public GameObject[] smallMeteorPrefabs; // Küçük meteor prefab'ları (büyük meteorlar için)
-    public int smallMeteorCount = 3; // Büyük meteor patladığında kaç küçük meteor çıkacak
-    public float spawnRadius = 0.5f; // Küçük meteorların çıkacağı yarıçap
-    public float minSpeed = 2f; // Küçük meteorlara minimum hız
-    public float maxSpeed = 3f; // Küçük meteorlara maksimum hız
-    public float scatterAngle = 45f; // Küçük meteorlara saçılma açısı (sol tarafa eğilimli)
+    public bool isBigMeteor = false;
+    public int scoreValue = 50;
+    public float health = 1f;
+    public GameObject explosionPrefab;
+    public GameObject[] smallMeteorPrefabs;
+    public int smallMeteorCount = 3;
+    public float spawnRadius = 0.5f;
+    public float minSpeed = 2f;
+    public float maxSpeed = 3f;
+    public float scatterAngle = 45f;
     private bool DamagePlayer = false;
 
     private void Start()
     {
         if (isMediumBird)
         {
-            Invoke("ExplodeAndDestroy", 7); // 7 saniye sonra patlat ve yok et
+            Invoke("ExplodeAndDestroy", 7);
         }
 
         if (isBox)
         {
-            Invoke("ExplodeAndDestroy", 15); // 12 saniye sonra patlat ve yok et
+            Invoke("ExplodeAndDestroy", 15);
         }
     }
 
     private void ExplodeAndDestroy()
     {
-        Explode(); // Patlama animasyonunu çalıştır
-        Destroy(gameObject); // Meteoru yok et
+        Explode();
+        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bullet = collision.GetComponent<Bullet>();
         if (bullet != null && !bullet.isEnemy)
         {
-            TakeDamage(bullet.damage); // Hasar uygula
-            Destroy(bullet.gameObject); // Mermiyi yok et
-            return; // Çifte işlemden kaçınmak için return
+            TakeDamage(bullet.damage);
+            Destroy(bullet.gameObject);
+            return;
         }
 
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player != null && !DamagePlayer)
         {
-            DamagePlayer = true; // Çifte hasarı engelle
+            DamagePlayer = true;
             if (isMediumBird)
             {
                 Explode();
-                Destroy(gameObject); // Orta Boyutlu Kusu yok et
+                Destroy(gameObject);
             }
         }
     }
 
     public void TakeDamage(float damage)
     {
-        health -= damage; // Sağlığı azalt
+        health -= damage;
         if (health <= 0)
         {
-            Explode(); // Meteor patlama
+            Explode();
         }
     }
 
@@ -70,21 +70,17 @@ public class Meteor : MonoBehaviour
     {
         if (isBigMeteor)
         {
-            SpawnSmallMeteors(); // Küçük meteorları oluştur
+            SpawnSmallMeteors();
         }
 
-
-
-        // Patlama animasyonu oluştur
         if (explosionPrefab != null)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
 
-        // Skor ekle
         Level.Instance.AddScore(scoreValue);
 
-        Destroy(gameObject); // Meteoru yok et
+        Destroy(gameObject);
     }
 
     private void SpawnSmallMeteors()
@@ -95,7 +91,6 @@ public class Meteor : MonoBehaviour
             Vector3 spawnPosition = transform.position + (Vector3)Random.insideUnitCircle * spawnRadius;
             GameObject smallMeteor = Instantiate(randomSmallMeteor, spawnPosition, Quaternion.identity);
 
-            // Küçük meteorlara hız ve yön ekle
             Rigidbody2D rb = smallMeteor.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
