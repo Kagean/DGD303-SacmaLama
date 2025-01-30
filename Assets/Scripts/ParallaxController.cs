@@ -4,29 +4,38 @@ namespace Shmup
 {
     public class ParallaxController : MonoBehaviour
     {
-        [SerializeField] Transform[] backgrounds; // Array of background layers
-        [SerializeField] float smoothing = 10f; // How smooth the parallax effect is
-        [SerializeField] float multiplier = 15f; // How much the parallax effect increments per layer
+        [System.Serializable]
+        public class ParallaxLayer
+        {
+            public Transform background;
+            public float smoothing = 10f;
+            public float multiplier = 15f;
+        }
+
+        [SerializeField] ParallaxLayer[] layers; // Array of background layers
 
         Transform cam;
-        Vector3 previousCamPos;
+        float previousCamPosX;
 
-        void Awake() => cam = Camera.main.transform;
+        void Start()
+        {
+            cam = Camera.main.transform;
+            previousCamPosX = cam.position.x;
+        }
 
-        void Start() => previousCamPos = cam.position;
         void Update()
         {
-            for (var i = 0; i < backgrounds.Length; i++)
+            for (var i = 0; i < layers.Length; i++)
             {
-                var parallax = (previousCamPos.x - cam.position.x) * (i * multiplier);
-                var targetX = backgrounds[i].position.x + parallax;
+                var parallax = (previousCamPosX - cam.position.x) * layers[i].multiplier;
+                var targetX = layers[i].background.position.x + parallax;
 
-                var targetPosition = new Vector3(targetX, backgrounds[i].position.y, backgrounds[i].position.z);
+                var targetPosition = new Vector3(targetX, layers[i].background.position.y, layers[i].background.position.z);
 
-                backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, targetPosition, smoothing * Time.deltaTime);
+                layers[i].background.position = Vector3.Lerp(layers[i].background.position, targetPosition, layers[i].smoothing * Time.deltaTime);
             }
 
-            previousCamPos = cam.position;
+            previousCamPosX = cam.position.x;
         }
     }
 }

@@ -187,6 +187,7 @@ MonoBehaviour:
   health: 3
   invincibleTime: 1
   blinkInterval: 0.15
+  baseSpeed: 5
   speed: 5
   smoothness: 0.1
   model: {fileID: 1317055930054875672}
@@ -433,7 +434,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3529412, g: 0.909804, b: 0.8862746, a: 0.2784314}
+  m_Color: {r: 0.3529412, g: 0.909804, b: 0.8862746, a: 0.101960786}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

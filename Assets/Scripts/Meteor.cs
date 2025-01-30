@@ -59,6 +59,9 @@ public class Meteor : MonoBehaviour
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
 
+        // Skor ekle
+        Level.Instance.AddScore(scoreValue);
+
         Destroy(gameObject); // Meteoru yok et
     }
 

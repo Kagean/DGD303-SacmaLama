@@ -648,6 +648,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
+      propertyPath: baseSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 519420032}
@@ -658,6 +662,10 @@ PrefabInstance:
     - target: {fileID: 1331762043585407534, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656454585571569814, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
+      propertyPath: shootIntervalSeconds
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8902407384129356942, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -968,14 +976,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dff75a4e26a37e4d81e08652082f206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefabs:
-  - {fileID: 2922297424635342125, guid: 23bb7c67f857e20449305dc6557ff7ff, type: 3}
-  - {fileID: 7790601627661922008, guid: ec6065d061b66454cbce8bef5cd87ce6, type: 3}
-  - {fileID: 2483730437000839301, guid: 226891d97e290764a95516c3262b8987, type: 3}
-  - {fileID: 666999275991165709, guid: be468159c1795b940ac95e8eb46ce4c2, type: 3}
-  - {fileID: 524687434216895845, guid: 7bb881a04ed13c44b9290d599182df92, type: 3}
-  - {fileID: 1874882267178975004, guid: d8438d5737ee7e14da2c59bb4f8253aa, type: 3}
+  powerUps:
+  - prefab: {fileID: 2922297424635342125, guid: 23bb7c67f857e20449305dc6557ff7ff, type: 3}
+    weight: 8
+  - prefab: {fileID: 7790601627661922008, guid: ec6065d061b66454cbce8bef5cd87ce6, type: 3}
+    weight: 8
+  - prefab: {fileID: 2483730437000839301, guid: 226891d97e290764a95516c3262b8987, type: 3}
+    weight: 25
+  - prefab: {fileID: 666999275991165709, guid: be468159c1795b940ac95e8eb46ce4c2, type: 3}
+    weight: 30
+  - prefab: {fileID: 524687434216895845, guid: 7bb881a04ed13c44b9290d599182df92, type: 3}
+    weight: 20
+  - prefab: {fileID: 1874882267178975004, guid: d8438d5737ee7e14da2c59bb4f8253aa, type: 3}
+    weight: 8
+  - prefab: {fileID: 7312321163108811848, guid: f13fecaf5233be1489e5e9a4eee6f50b, type: 3}
+    weight: 3
   spawnPoint: {fileID: 1729521904}
+  spawnInterval: 15
 --- !u!114 &1729521906
 MonoBehaviour:
   m_ObjectHideFlags: 0
