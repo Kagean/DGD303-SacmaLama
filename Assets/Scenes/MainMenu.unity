@@ -618,7 +618,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 619327629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1950292949}
+        m_TargetAssemblyTypeName: Shmup.AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &619327629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1028,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1950292949}
+        m_TargetAssemblyTypeName: Shmup.AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1077649975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,6 +1212,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1950292949}
+        m_TargetAssemblyTypeName: Shmup.AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1784,6 +1820,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1950292949}
+        m_TargetAssemblyTypeName: Shmup.AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1893323709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,6 +1870,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893323706}
   m_CullTransparentMesh: 1
+--- !u!114 &1950292949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2866741445888870077, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+  m_PrefabInstance: {fileID: 5870748727431973267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7f6c1ab66495d43b4c4a7d6bd0f265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980267469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1960,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5870748727431973267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4388967703758240422, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388967703758240422, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_TagString
+      value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.797167
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3216132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08458493
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529400279355090276, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20c729e201c59b742abdbfcaaa69ab21, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1908,3 +2028,4 @@ SceneRoots:
   - {fileID: 270241458}
   - {fileID: 47549329}
   - {fileID: 1980267472}
+  - {fileID: 5870748727431973267}
