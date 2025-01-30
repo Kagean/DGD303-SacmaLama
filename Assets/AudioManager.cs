@@ -12,7 +12,6 @@ namespace Shmup
         public AudioClip background; // Arkaplan müziði
         public AudioClip bossMusic; // Boss müziði
         public AudioClip bossFirstSound;
-        public AudioClip ClickSound; // Týklama sesi
 
         private static AudioManager instance;
 
@@ -78,14 +77,6 @@ namespace Shmup
             Debug.Log("Arkaplan müziði çalýnýyor.");
             musicSource.clip = background;
             musicSource.Play();
-        }
-
-        public void PlayClickSound()
-        {
-            if (ClickSound != null)
-            {
-                sfxSource.PlayOneShot(ClickSound);
-            }
         }
     }
 }
