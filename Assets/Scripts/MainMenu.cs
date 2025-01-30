@@ -2,6 +2,7 @@ using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
+using UnityEngine.SceneManagement;
 
 namespace Shmup
 {
@@ -10,6 +11,7 @@ namespace Shmup
         [SerializeField] SceneReference startingLevel;
         [SerializeField] Button playButton;
         [SerializeField] Button quitButton;
+        [SerializeField] Button CreditsButton;
 
         void Awake()
         {
@@ -20,6 +22,11 @@ namespace Shmup
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        public void Credits()
+        {
+            SceneManager.LoadScene("Level3");
         }
 
     }
