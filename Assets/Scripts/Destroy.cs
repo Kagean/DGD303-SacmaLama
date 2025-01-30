@@ -71,7 +71,10 @@ public class Destroy : MonoBehaviour
         Debug.Log("Düþman öldü!");
         if (BossStage.Instance != null)
         {
-            BossStage.Instance.OnEnemyKilled();
+            if (gameObject.CompareTag("Enemy"))
+            {
+                BossStage.Instance.OnEnemyKilled();
+            }
         }
         Destroy(gameObject);
     }

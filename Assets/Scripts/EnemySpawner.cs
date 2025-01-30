@@ -31,12 +31,16 @@ namespace Shmup
                 SpawnEnemy();
                 spawnTimer = 0f;
             }
-
-
         }
 
         void SpawnEnemy()
         {
+            if (splines.Count == 0)
+            {
+                Debug.LogWarning("Spline listesi boþ, düþman spawn edilemiyor.");
+                return;
+            }
+
             EnemyType enemyType = enemyTypes[Random.Range(0, enemyTypes.Count)];
             SplineContainer spline = splines[Random.Range(0, splines.Count)];
 

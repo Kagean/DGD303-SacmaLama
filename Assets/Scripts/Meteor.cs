@@ -26,7 +26,7 @@ public class Meteor : MonoBehaviour
 
         if (isBox)
         {
-            Destroy(gameObject, 10); // 10 saniye sonra patlat ve yok et
+            Invoke("ExplodeAndDestroy", 15); // 12 saniye sonra patlat ve yok et
         }
     }
 
@@ -106,4 +106,12 @@ public class Meteor : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        if (BossStage.Instance != null)
+        {
+            BossStage.Instance.OnEnemyKilled();
+        }
+    }
+
 }

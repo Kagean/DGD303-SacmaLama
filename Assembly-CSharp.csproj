@@ -64,9 +64,11 @@
     <Compile Include="Assets\Scripts\EnemyType.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\BoxSpawner.cs" />
+    <Compile Include="Assets\MoveSin.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\UISpriteAnimation.cs" />
+    <Compile Include="Assets\WaveSpanner.cs" />
     <Compile Include="Assets\Scripts\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Bounce.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />

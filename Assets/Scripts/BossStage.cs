@@ -10,6 +10,7 @@ namespace Shmup
         public Transform bossSpawnPoint; // Boss'un ortaya çýkacaðý nokta
         public int enemiesToKillForBoss = 10; // Boss'un ortaya çýkmasý için öldürülmesi gereken düþman sayýsý
         private int enemiesKilled = 0; // Öldürülen düþman sayýsý
+        public bool bossSpawned { get; private set; } = false; // Boss'un spawnlanýp spawnlanmadýðýný kontrol eden deðiþken
 
         private void Awake()
         {
@@ -26,6 +27,11 @@ namespace Shmup
         // Düþman öldürüldüðünde çaðrýlacak yöntem
         public void OnEnemyKilled()
         {
+            if (bossSpawned)
+            {
+                return; // Boss zaten spawnlanmýþsa metottan çýk
+            }
+
             enemiesKilled++;
             Debug.Log($"Öldürülen düþman sayýsý: {enemiesKilled}/{enemiesToKillForBoss}");
             if (enemiesKilled >= enemiesToKillForBoss)
@@ -37,11 +43,21 @@ namespace Shmup
         // Boss'u ortaya çýkaran yöntem
         private void SpawnBoss()
         {
+            if (bossSpawned)
+            {
+                return; // Boss zaten spawnlanmýþsa metottan çýk
+            }
+
             if (bossPrefab != null && bossSpawnPoint != null)
             {
                 GameObject boss = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
                 boss.transform.SetParent(bossSpawnPoint);
+                bossSpawned = true; // Boss'un spawnlandýðýný belirt
                 Debug.Log("Boss ortaya çýktý!");
+            }
+            else
+            {
+                Debug.LogWarning("Boss prefab veya spawn noktasý ayarlanmamýþ.");
             }
         }
     }

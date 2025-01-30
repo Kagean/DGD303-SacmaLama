@@ -9,6 +9,7 @@ namespace Shmup
         public float minSpawnTime = 1f; // Minimum spawn süresi
         public float maxSpawnTime = 5f; // Maksimum spawn süresi
         private float nextSpawnTime;
+        private System.Random random = new System.Random(); // Random örneði
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -19,6 +20,11 @@ namespace Shmup
         // Update is called once per frame
         void Update()
         {
+            if (BossStage.Instance != null && BossStage.Instance.bossSpawned)
+            {
+                return; // Boss spawnlandýktan sonra kutu spawnlanmasýný durdur
+            }
+
             if (Time.time >= nextSpawnTime)
             {
                 SpawnBoxes();
@@ -33,16 +39,11 @@ namespace Shmup
 
         private void SpawnBoxes()
         {
-            // 3 kutudan rastgele 2'sini seç
-            int[] indices = { 0, 1, 2 };
-            System.Random random = new System.Random();
-            indices = indices.OrderBy(x => random.Next()).ToArray();
-
-            for (int i = 0; i < 2; i++)
-            {
-                GameObject box = Instantiate(boxPrefabs[indices[i]], transform.position, Quaternion.identity);
-                Destroy(box, 10f); // 10 saniye sonra yok et
-            }
+            // 3 kutudan rastgele 1 tanesini seç
+            int index = random.Next(boxPrefabs.Length);
+            GameObject box = Instantiate(boxPrefabs[index], transform.position, Quaternion.identity);
+            box.transform.SetParent(transform); // Kutuyu spawner'ýn çocuðu olarak ayarla
+            Destroy(box, 10f); // 10 saniye sonra yok et
         }
     }
 }

@@ -21,6 +21,11 @@ namespace Shmup
         // Update is called once per frame
         void Update()
         {
+            if (BossStage.Instance != null && BossStage.Instance.bossSpawned)
+            {
+                return; // Boss spawnlandýktan sonra meteor spawnlanmasýný durdur
+            }
+
             if (Time.time >= nextSpawnTime1)
             {
                 SpawnMeteor();
