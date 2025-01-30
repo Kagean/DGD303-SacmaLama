@@ -45,6 +45,17 @@ namespace Shmup
             }
             Destroy(gameObject);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            // Çarptığı nesnenin oyuncunun mermisi olup olmadığını kontrol et
+            Bullet bullet = other.GetComponent<Bullet>();
+            if (bullet != null && !bullet.isEnemy && !bullet.isBossWeapon)
+            {
+                TakeDamage(bullet.damage);
+                Destroy(other.gameObject); // Mermiyi yok et
+            }
+        }
     }
 
     [System.Serializable]

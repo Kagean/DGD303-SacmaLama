@@ -5,31 +5,38 @@ namespace Shmup
 {
     public class BossWeapon : MonoBehaviour
     {
-        public Bullet missilePrefab; // Füze prefab'ý
-        public Transform playerTransform; // Oyuncunun transformu
-        public float missileShootIntervalSeconds = 1.0f; // Misilleme saldýrýlarý arasýndaki süre
-        private float missileShootTimer = 0.0f; // Misilleme saldýrýsý zamanlayýcýsý
-        public bool isActive = false; // Silahýn aktif olup olmadýðýný kontrol eder
+        public Bullet missilePrefab;
+        public Transform playerTransform;
+        public float missileShootIntervalSeconds = 1.0f;
+        private float missileShootTimer = 0.0f;
+        public bool isActive = false;
+
+        void Start()
+        {
+            // Player tagli GameObject'i bul ve playerTransform olarak ayarla
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
 
         void Update()
         {
-            if (!isActive || playerTransform == null)
-                return;
-
-            missileShootTimer += Time.deltaTime;
-            if (missileShootTimer >= missileShootIntervalSeconds)
+            if (isActive && playerTransform != null)
             {
-                MissileAttack(playerTransform);
-                missileShootTimer = 0.0f; // Zamanlayýcýyý sýfýrla
+                missileShootTimer += Time.deltaTime;
+                if (missileShootTimer >= missileShootIntervalSeconds)
+                {
+                    MissileAttack(playerTransform);
+                    missileShootTimer = 0.0f;
+                }
             }
         }
 
         public void MissileAttack(Transform targetTransform)
         {
-            GameObject go = Instantiate(missilePrefab.gameObject, transform.position, Quaternion.identity);
-            Bullet missile = go.GetComponent<Bullet>();
-            missile.isEnemy = true; // Merminin düþman mermisi olduðunu belirt
-            missile.isBossWeapon = true; // Merminin boss silahý olduðunu belirt
+            Bullet missile = Instantiate(missilePrefab, transform.position, transform.rotation);
             StartCoroutine(UpdateMissileDirection(missile, targetTransform));
         }
 
@@ -37,21 +44,20 @@ namespace Shmup
         {
             while (missile != null && targetTransform != null)
             {
-                missile.direction = (targetTransform.position - missile.transform.position).normalized;
-                yield return null; // Bir sonraki kareye kadar bekle
+                Vector3 direction = (targetTransform.position - missile.transform.position).normalized;
+                missile.velocity = direction * missile.speed;
+                yield return null;
             }
         }
 
         public void Activate()
         {
             isActive = true;
-            Debug.Log($"Boss weapon activated: {gameObject.name}");
         }
 
         public void Deactivate()
         {
             isActive = false;
-            Debug.Log($"Boss weapon deactivated: {gameObject.name}");
         }
     }
 }

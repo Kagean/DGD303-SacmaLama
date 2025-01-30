@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 4788547418143850205, guid: 0fafa989fffa9f34d993236c9d394a97, type: 3}
   bossSpawnPoint: {fileID: 386911823}
-  enemiesToKillForBoss: 26
+  enemiesToKillForBoss: 2
 --- !u!1 &471819653
 GameObject:
   m_ObjectHideFlags: 0

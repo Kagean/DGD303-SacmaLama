@@ -1456,7 +1456,7 @@ MonoBehaviour:
   - {fileID: 5588413520009062804}
   - {fileID: 7819667042397580574}
   hearthPrefab: {fileID: 7870538585227311306, guid: 8020f21246f43064da11f91b13e88547, type: 3}
-  playerController: {fileID: 0}
+  playerController: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
   score: 0
   gameOverScreen: {fileID: 9135307738851475213}
   pauseScreen: {fileID: 3484858150727446320}
