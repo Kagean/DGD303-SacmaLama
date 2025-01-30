@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63f031025fc7644ab8219dce7e721bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bosshealth: 100
+  bosshealth: 200
   weapons:
   - {fileID: 7034714310501451568}
   activateWeaponsHealthThreshold: 60

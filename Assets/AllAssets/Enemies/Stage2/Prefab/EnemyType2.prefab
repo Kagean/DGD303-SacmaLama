@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3969339638341842704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4435501, z: 0}
+  m_LocalPosition: {x: 0, y: -0.814, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,10 +47,10 @@ MonoBehaviour:
   powerUpLevelRequirement: 0
   bullet: {fileID: 6352332816009377503, guid: 1c2067391328ac847aae3f5171be7a4b, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 5
+  shootIntervalSeconds: 4
   shootDelaySeconds: 2
   isActive: 1
-  missileAttackEnabled: 0
+  missileAttackEnabled: 1
   playerTransform: {fileID: 0}
   missileShootIntervalSeconds: 1
 --- !u!1 &7327061337515207461
@@ -252,7 +252,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.01683855, y: 0}
+  m_Offset: {x: -0.01683855, y: 0.027518272}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -262,7 +262,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8082571, y: 1}
+  m_Size: {x: 1.8082571, y: 0.94496346}
   m_EdgeRadius: 0
 --- !u!114 &450869441686117771
 MonoBehaviour:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6041be69d4a7109479bbb501a3a81db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 2
   waveFrequency: 1
   waveAmplitude: 1
   enableWaveMovement: 0

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 100
-  health: 4
+  health: 3
 --- !u!50 &42139303993053698
 Rigidbody2D:
   serializedVersion: 5
@@ -186,8 +186,8 @@ MonoBehaviour:
   powerUpLevelRequirement: 0
   bullet: {fileID: 6665140535319528642, guid: d43cec46520de274ebc1b148bd5d6bfe, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 1.7
-  shootDelaySeconds: 0.7
+  shootIntervalSeconds: 3
+  shootDelaySeconds: 1.4
   isActive: 1
   missileAttackEnabled: 0
   playerTransform: {fileID: 0}
