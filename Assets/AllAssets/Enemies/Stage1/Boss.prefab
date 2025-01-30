@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8864433935406058098}
   - component: {fileID: 2772615307971425186}
-  - component: {fileID: 2303143732058171603}
   m_Layer: 0
   m_Name: BirdBoss
   m_TagString: Untagged
@@ -30,8 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 444716506654800744}
+  m_Children: []
   m_Father: {fileID: 3837842976972007939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2772615307971425186
@@ -89,98 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2303143732058171603
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2502114637168932294}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6ad118cb2736f243b9edbd7e08f1873, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!1 &4323119620567292704
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 38125293894003587}
-  - component: {fileID: 8809646454434419957}
-  - component: {fileID: 7133064562345446850}
-  m_Layer: 0
-  m_Name: Gun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &38125293894003587
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323119620567292704}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.39639708, y: 0.9180792, z: -0, w: 0}
-  m_LocalPosition: {x: -4.643, y: -4.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 444716506654800744}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 46.706}
---- !u!114 &8809646454434419957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323119620567292704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpLevelRequirement: 0
-  bullet: {fileID: 3437661452728260844, guid: 6da276b79fb76cf42924a37fae729b78, type: 3}
-  autoShoot: 1
-  shootIntervalSeconds: 10
-  shootDelaySeconds: 10
-  isActive: 1
-  missileAttackEnabled: 1
-  playerTransform: {fileID: 0}
-  missileShootIntervalSeconds: 1
---- !u!114 &7133064562345446850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323119620567292704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d12dee2ebc46a4699fbde1bbebf1b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 3437661452728260844, guid: 6da276b79fb76cf42924a37fae729b78, type: 3}
-  playerTransform: {fileID: 0}
-  missileShootIntervalSeconds: 1
-  isActive: 0
 --- !u!1 &4788547418143850205
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +98,8 @@ GameObject:
   - component: {fileID: 3837842976972007939}
   - component: {fileID: 8215804424953928467}
   - component: {fileID: 5051150331830387780}
+  - component: {fileID: 32060114188814666}
+  - component: {fileID: 5946994828550142751}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -256,37 +164,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bosshealth: 10
   weapons:
-  - {fileID: 7133064562345446850}
+  - {fileID: 0}
   activateWeaponsHealthThreshold: 8
---- !u!1 &8901236006313335117
-GameObject:
+--- !u!95 &32060114188814666
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 444716506654800744}
-  m_Layer: 0
-  m_Name: Boss Stage1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &444716506654800744
-Transform:
+  m_GameObject: {fileID: 4788547418143850205}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6ad118cb2736f243b9edbd7e08f1873, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!68 &5946994828550142751
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8901236006313335117}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 38125293894003587}
-  m_Father: {fileID: 8864433935406058098}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4788547418143850205}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.2017102, y: 2.5944815}
+  - {x: -1.7882402, y: 2.271062}
+  - {x: -2.0394378, y: 1.4907441}
+  - {x: -2.4486911, y: 1.1502819}
+  - {x: -2.4903765, y: 0.6052656}
+  - {x: -1.7638793, y: 0.6189184}
+  - {x: -1.4156456, y: 0.6462021}
+  - {x: -1.7688904, y: -0.09773636}
+  - {x: -1.6086521, y: -0.9763527}
+  - {x: -0.6793108, y: -1.8422632}
+  - {x: -0.97779655, y: -2.5616379}
+  - {x: 2.2942753, y: -2.5325975}
+  - {x: 2.5433068, y: -1.9632685}
+  - {x: 2.4235559, y: 0.19758701}
+  - {x: 1.8666339, y: 0.93860435}
+  - {x: 0.9905138, y: 1.3899045}
+  - {x: 0.013411045, y: 1.4420695}
+  - {x: -0.24840307, y: 2.3301325}
+  - {x: -1.1250134, y: 2.5944815}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

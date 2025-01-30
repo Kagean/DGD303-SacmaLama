@@ -40,6 +40,7 @@ namespace Shmup
             Debug.Log("Boss öldü!");
             if (Level.Instance != null)
             {
+                Level.Instance.AddScore(2000); // Boss öldüğünde 100 puan ekle
                 Level.Instance.OnBossDefeated();
             }
             Destroy(gameObject);

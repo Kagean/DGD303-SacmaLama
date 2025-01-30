@@ -46,6 +46,7 @@ public class Destroy : MonoBehaviour
                 // Eðer düþman öldü ise, puan ekle ve düþmaný yok et
                 if (health <= 0)
                 {
+                    Die();
                     Level.Instance.AddScore(scoreValue);
                     Destroy(gameObject); // Düþmaný yok et
                 }
@@ -62,5 +63,16 @@ public class Destroy : MonoBehaviour
     public void PlayerDamage(float Playerdamage)
     {
         health -= Playerdamage;
+    }
+
+    private void Die()
+    {
+        // Düþmanýn ölme iþlemleri burada yapýlabilir
+        Debug.Log("Düþman öldü!");
+        if (BossStage.Instance != null)
+        {
+            BossStage.Instance.OnEnemyKilled();
+        }
+        Destroy(gameObject);
     }
 }
