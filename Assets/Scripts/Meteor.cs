@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
+    public bool isMediumBird = false;
     public bool isBigMeteor = false; // Meteor türünü belirler
     public int scoreValue = 50; // Yok edildiğinde kazandıracağı skor
     public float health = 1f; // Meteorun başlangıç sağlığı
@@ -34,6 +35,11 @@ public class Meteor : MonoBehaviour
         if (player != null && !DamagePlayer)
         {
             DamagePlayer = true; // Çifte hasarı engelle
+            if (isMediumBird)
+            {
+                Explode();
+                Destroy(gameObject); // Orta Boyutlu Kusu yok et
+            }
         }
     }
 
@@ -52,6 +58,8 @@ public class Meteor : MonoBehaviour
         {
             SpawnSmallMeteors(); // Küçük meteorları oluştur
         }
+
+
 
         // Patlama animasyonu oluştur
         if (explosionPrefab != null)
