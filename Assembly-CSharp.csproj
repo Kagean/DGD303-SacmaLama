@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Wall.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\BoxSpawner.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\LerpColor.cs" />
     <Compile Include="Assets\Scripts\InputReader.cs" />
+    <Compile Include="Assets\Comeback.cs" />
     <Compile Include="Assets\Scripts\MoveRightToLeft.cs" />
     <Compile Include="Assets\Scripts\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />

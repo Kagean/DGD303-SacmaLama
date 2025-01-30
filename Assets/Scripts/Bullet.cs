@@ -30,6 +30,13 @@ public class Bullet : MonoBehaviour
     // Merminin bir nesneye çarpmasýný kontrol et
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+
+
         // Eðer çarpýlan nesne düþman ise ve mermi düþman mermisi deðilse, hasar ver
         if (other.CompareTag("Enemy") && !isEnemy)
         {

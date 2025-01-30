@@ -9,6 +9,7 @@ TagManager:
   - Meteor
   - Boss
   - Audio
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 4788547418143850205, guid: 0fafa989fffa9f34d993236c9d394a97, type: 3}
   bossSpawnPoint: {fileID: 386911823}
-  enemiesToKillForBoss: 2
+  enemiesToKillForBoss: 26
 --- !u!1 &471819653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1686,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1213520131}
+    - target: {fileID: 8899074858941968670, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

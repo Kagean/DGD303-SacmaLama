@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 3071834817645093191}
   serializedVersion: 2
   m_LocalRotation: {x: 0.39639708, y: 0.9180792, z: -0, w: 0}
-  m_LocalPosition: {x: -4.643, y: -4.23, z: 0}
+  m_LocalPosition: {x: -5.1, y: -3.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3071834817645093191}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
@@ -84,7 +84,7 @@ MonoBehaviour:
   shootIntervalSeconds: 10
   shootDelaySeconds: 10
   isActive: 1
-  missileAttackEnabled: 1
+  missileAttackEnabled: 0
   playerTransform: {fileID: 0}
   missileShootIntervalSeconds: 1
 --- !u!114 &2098433806695102768
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 3437661452728260844, guid: 6da276b79fb76cf42924a37fae729b78, type: 3}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 8902407384129356942, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
   missileShootIntervalSeconds: 1
   isActive: 0
 --- !u!1 &4263146129843968786
@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 4263146129843968786}
   serializedVersion: 2
   m_LocalRotation: {x: 0.39639708, y: 0.9180792, z: -0, w: 0}
-  m_LocalPosition: {x: -4.643, y: -4.23, z: 0}
+  m_LocalPosition: {x: -5.39, y: -4.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143,19 +143,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4263146129843968786}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6811cd8b989d16745be7899f9e9351d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpLevelRequirement: 0
-  bullet: {fileID: 3437661452728260844, guid: 6da276b79fb76cf42924a37fae729b78, type: 3}
+  bullet: {fileID: 8590451021667605488, guid: 32a45845326175a4aaa3ab78942c0aa2, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 10
-  shootDelaySeconds: 10
-  isActive: 1
-  missileAttackEnabled: 1
-  playerTransform: {fileID: 0}
+  shootIntervalSeconds: 3
+  shootDelaySeconds: 2
+  isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 8902407384129356942, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
   missileShootIntervalSeconds: 1
 --- !u!114 &7034714310501451568
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 3437661452728260844, guid: 6da276b79fb76cf42924a37fae729b78, type: 3}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 8902407384129356942, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
   missileShootIntervalSeconds: 1
   isActive: 0
 --- !u!1 &7261146296083943564
@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 7261146296083943564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: 0.7, z: 0}
+  m_LocalPosition: {x: 3.7, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -312,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 7489120014503782750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 5, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63f031025fc7644ab8219dce7e721bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bosshealth: 10
+  bosshealth: 100
   weapons:
-  - {fileID: 2098433806695102768}
-  activateWeaponsHealthThreshold: 8
+  - {fileID: 7034714310501451568}
+  activateWeaponsHealthThreshold: 60
