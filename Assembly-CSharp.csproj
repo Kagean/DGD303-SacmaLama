@@ -62,9 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\UISpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Bounce.cs" />
@@ -72,8 +72,10 @@
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\ParallaxController.cs" />
     <Compile Include="Assets\Scripts\MainCharacter.cs" />
+    <Compile Include="Assets\Scripts\BossStage.cs" />
     <Compile Include="Assets\Scripts\Meteor.cs" />
     <Compile Include="Assets\Scripts\EnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\Boss.cs" />
     <Compile Include="Assets\Scripts\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Destroy.cs" />

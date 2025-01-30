@@ -208,7 +208,7 @@ namespace Shmup
             }
 
             health -= damage;
-            speed = Mathf.Max(baseSpeed, speed - 2); // Hýzý azalt ve temel hýzýn altýna düþmediðinden emin ol
+            speed = baseSpeed; // Hýzý temel hýza geri döndür
             if (health <= 0)
             {
                 GameOver();

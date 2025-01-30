@@ -15,6 +15,11 @@ public class Attack : MonoBehaviour
 
     private float originalShootIntervalSeconds; // Orijinal saldýrý süresi
 
+    public bool missileAttackEnabled = false; // Misilleme saldýrýsýnýn aktif olup olmadýðýný kontrol eder
+    public Transform playerTransform; // Oyuncunun transformu
+    public float missileShootIntervalSeconds = 1.0f; // Misilleme saldýrýlarý arasýndaki süre
+    private float missileShootTimer = 0.0f; // Misilleme saldýrýsý zamanlayýcýsý
+
     void Start()
     {
         originalShootIntervalSeconds = shootIntervalSeconds; // Orijinal saldýrý süresini sakla
@@ -63,6 +68,17 @@ public class Attack : MonoBehaviour
                 delayTimer += Time.deltaTime;
             }
         }
+
+        // Misilleme saldýrýsý aktifse ve belirlenen süre geçmiþse oyuncuya doðru ateþ et
+        if (missileAttackEnabled && playerTransform != null)
+        {
+            missileShootTimer += Time.deltaTime;
+            if (missileShootTimer >= missileShootIntervalSeconds)
+            {
+                MissileAttack(playerTransform.position);
+                missileShootTimer = 0.0f; // Zamanlayýcýyý sýfýrla
+            }
+        }
     }
 
     public void Shoot()
@@ -79,5 +95,18 @@ public class Attack : MonoBehaviour
         {
             shootIntervalSeconds = 0.1f; // Saldýrý süresini minimum 0.1f olarak ayarla
         }
+    }
+
+    public void MissileAttack(Vector2 targetPosition)
+    {
+        GameObject go = Instantiate(bullet.gameObject, transform.position, Quaternion.identity);
+        Bullet gobullet = go.GetComponent<Bullet>();
+        gobullet.direction = (targetPosition - (Vector2)transform.position).normalized;
+        gobullet.isEnemy = true; // Merminin düþman mermisi olduðunu belirt
+    }
+
+    public void ToggleMissileAttack(bool isEnabled)
+    {
+        missileAttackEnabled = isEnabled;
     }
 }
