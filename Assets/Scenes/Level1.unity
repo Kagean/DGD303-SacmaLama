@@ -420,6 +420,7 @@ Transform:
   m_Children:
   - {fileID: 1943084303}
   - {fileID: 1729521904}
+  - {fileID: 2115758859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
@@ -529,10 +530,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
-      propertyPath: baseSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 679983876620617201, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 519420032}
@@ -543,10 +540,6 @@ PrefabInstance:
     - target: {fileID: 1331762043585407534, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5656454585571569814, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
-      propertyPath: shootIntervalSeconds
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8902407384129356942, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,8 +582,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5627925147268058573, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dd6e0317faeb647aa5efad51e2444e, type: 3}
@@ -1271,6 +1263,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2115758858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115758859}
+  - component: {fileID: 2115758861}
+  - component: {fileID: 2115758860}
+  m_Layer: 0
+  m_Name: MediumBirdSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115758859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115758858}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.93, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115758860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115758858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8989402507e189d478798ce3dbaae17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteorPrefab: {fileID: 8828830143675323586, guid: 26bba6ad8f1951f4bab0abfeeb4a9047, type: 3}
+  spawnInterval1: 10
+  spawnInterval2: 15
+--- !u!114 &2115758861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115758858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6041be69d4a7109479bbb501a3a81db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  waveFrequency: 1.8
+  waveAmplitude: 1.8
+  enableWaveMovement: 1
 --- !u!1001 &6418575340765481434
 PrefabInstance:
   m_ObjectHideFlags: 0

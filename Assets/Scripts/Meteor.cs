@@ -4,6 +4,7 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     public bool isMediumBird = false;
+    public bool isBox = false;
     public bool isBigMeteor = false; // Meteor türünü belirler
     public int scoreValue = 50; // Yok edildiğinde kazandıracağı skor
     public float health = 1f; // Meteorun başlangıç sağlığı
@@ -18,9 +19,22 @@ public class Meteor : MonoBehaviour
 
     private void Start()
     {
+        if (isMediumBird)
+        {
+            Invoke("ExplodeAndDestroy", 7); // 7 saniye sonra patlat ve yok et
+        }
 
+        if (isBox)
+        {
+            Destroy(gameObject, 10); // 10 saniye sonra patlat ve yok et
+        }
     }
 
+    private void ExplodeAndDestroy()
+    {
+        Explode(); // Patlama animasyonunu çalıştır
+        Destroy(gameObject); // Meteoru yok et
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bullet = collision.GetComponent<Bullet>();
