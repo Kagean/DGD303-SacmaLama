@@ -38,6 +38,10 @@ namespace Shmup
         {
             // Boss'un ölme işlemleri burada yapılabilir
             Debug.Log("Boss öldü!");
+            if (Level.Instance != null)
+            {
+                Level.Instance.OnBossDefeated();
+            }
             Destroy(gameObject);
         }
     }
@@ -56,6 +60,16 @@ namespace Shmup
                 Debug.Log($"Performing attack: {method}");
                 // Bu örnekte sadece log yazıyoruz, gerçek saldırı metodlarını çağırmak için Invoke kullanılabilir
                 // Invoke(method, 0f);
+            }
+        }
+    }
+    public class BossController : MonoBehaviour
+    {
+        public void OnDestroy()
+        {
+            if (Level.Instance != null)
+            {
+                Level.Instance.OnBossDefeated();
             }
         }
     }

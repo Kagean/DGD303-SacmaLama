@@ -249,4 +249,9 @@ public class Level : MonoBehaviour
     {
         bullets.Add(newBullet);
     }
+    public void OnBossDefeated()
+    {
+        startNextLevel = true;
+        nextLevelTimer = NextLevelDelay;
+    }
 }
