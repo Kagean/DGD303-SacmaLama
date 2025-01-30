@@ -630,7 +630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GAME ENG\u0130NE"
+  m_text: GAME ENGINE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 499dd8e9afb79504c974e50507195359, type: 2}
   m_sharedMaterial: {fileID: -876950344871691267, guid: 499dd8e9afb79504c974e50507195359, type: 2}
