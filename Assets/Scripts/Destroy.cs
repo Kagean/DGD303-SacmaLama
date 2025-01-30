@@ -1,5 +1,6 @@
 using Shmup;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destroy : MonoBehaviour
 {
@@ -62,5 +63,4 @@ public class Destroy : MonoBehaviour
     {
         health -= Playerdamage;
     }
-
 }

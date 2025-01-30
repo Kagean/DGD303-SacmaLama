@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lasergunspritesheet_0: 5782458525681876872
+      lasergunspritesheet_1: 4595205428863394335
+      lasergunspritesheet_2: -3846788483303313211
+      lasergunspritesheet_3: 6059702345166814556
+      lasergunspritesheet_4: 6682233039941650165
+      lasergunspritesheet_5: 1716094555415777434
+      lasergunspritesheet_6: 5662556749853772176
+      lasergunspritesheet_7: 9123320129274931871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

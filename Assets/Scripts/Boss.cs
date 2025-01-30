@@ -1,62 +1,44 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Shmup
 {
     public class Boss : MonoBehaviour
     {
-        [SerializeField]
-        private int maxHealth = 500;
-        private int currentHealth;
+        public float bosshealth = 10f; // Boss'un baÅŸlangÄ±Ã§ saÄŸlÄ±ÄŸÄ±
+        public BossWeapon[] weapons; // Boss'un sahip olduÄŸu silahlar
+        public float activateWeaponsHealthThreshold = 50f; // SilahlarÄ±n etkinleÅŸeceÄŸi saÄŸlÄ±k eÅŸiÄŸi
 
-        [SerializeField]
-        private HealthThreshold[] healthThresholds;
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-            currentHealth = maxHealth;
-        }
-
-        // Update is called once per frame
         void Update()
         {
-            for (int i = 0; i < healthThresholds.Length; i++)
+            // SaÄŸlÄ±k belirli bir seviyenin altÄ±na dÃ¼ÅŸtÃ¼ÄŸÃ¼nde silahlarÄ± etkinleÅŸtir
+            if (bosshealth <= activateWeaponsHealthThreshold)
             {
-                if (currentHealth <= healthThresholds[i].Threshold)
-                {
-                    healthThresholds[i].PerformAttacks();
-                    // Saldırı yapıldıktan sonra bu eşiği tekrar kontrol etmemek için eşiği büyük bir değere ayarlayalım
-                    healthThresholds[i].Threshold = int.MaxValue;
-                }
+                ActivateWeapons();
             }
         }
 
-        // Canı azaltmak için bir metod ekleyelim
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
-            currentHealth -= damage;
-            Debug.Log($"Boss hasar aldı: {damage}, kalan can: {currentHealth}"); // Hasar alındığını doğrulamak için log ekleyelim
-            if (currentHealth <= 0)
+            bosshealth -= damage;
+            if (bosshealth <= 0)
             {
                 Die();
-                Destroy(gameObject);
+            }
+        }
+
+        private void ActivateWeapons()
+        {
+            foreach (var weapon in weapons)
+            {
+                weapon.Activate();
             }
         }
 
         private void Die()
         {
-            // Boss öldüğünde yapılacak işlemler burada olacak
-            Debug.Log("Boss öldü!");
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null && !bullet.isEnemy) // Sadece oyuncu mermileri hasar verebilir
-            {
-                TakeDamage(bullet.damage);
-                Destroy(bullet.gameObject);
-            }
+            // Boss'un Ã¶lme iÅŸlemleri burada yapÄ±labilir
+            Debug.Log("Boss Ã¶ldÃ¼!");
+            Destroy(gameObject);
         }
     }
 
@@ -70,9 +52,9 @@ namespace Shmup
         {
             foreach (var method in AttackMethods)
             {
-                // Belirtilen saldırı metodunu çağır
+                // Belirtilen saldÄ±rÄ± metodunu Ã§aÄŸÄ±r
                 Debug.Log($"Performing attack: {method}");
-                // Bu örnekte sadece log yazıyoruz, gerçek saldırı metodlarını çağırmak için Invoke kullanılabilir
+                // Bu Ã¶rnekte sadece log yazÄ±yoruz, gerÃ§ek saldÄ±rÄ± metodlarÄ±nÄ± Ã§aÄŸÄ±rmak iÃ§in Invoke kullanÄ±labilir
                 // Invoke(method, 0f);
             }
         }

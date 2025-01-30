@@ -1,3 +1,4 @@
+using Shmup;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -5,14 +6,13 @@ public class Bullet : MonoBehaviour
     public Vector2 direction = new Vector2(1, 0);
     public float speed = 2;
     public int damage = 1; // Merminin vereceði hasar miktarý
-
     public Vector2 velocity;
-
     public bool isEnemy = false;
+    public bool isBossWeapon = false; // Bu merminin boss silahý olup olmadýðýný kontrol eder
 
     void Start()
     {
-        Destroy(gameObject, 3); // Mermiyi 3 saniye sonra yok et
+        Destroy(gameObject, 4); // Mermiyi 4 saniye sonra yok et
     }
 
     void Update()
@@ -23,9 +23,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 pos = transform.position;
-
         pos += velocity * Time.fixedDeltaTime;
-
         transform.position = pos;
     }
 
@@ -40,6 +38,19 @@ public class Bullet : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+            }
+
+            Destroy(gameObject); // Mermiyi yok et
+        }
+
+        // Eðer çarpýlan nesne boss ise ve bu mermi boss silahý deðilse, hasar ver
+        if (other.CompareTag("Boss") && !isBossWeapon)
+        {
+            // Boss nesnesinin health script'ine eriþerek hasar uygula
+            Boss bossHealth = other.GetComponent<Boss>();
+            if (bossHealth != null)
+            {
+                bossHealth.TakeDamage(damage);
             }
 
             Destroy(gameObject); // Mermiyi yok et

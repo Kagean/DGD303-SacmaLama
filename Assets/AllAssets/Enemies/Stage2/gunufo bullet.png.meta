@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gunufo bullet_0: 1839314536375366173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

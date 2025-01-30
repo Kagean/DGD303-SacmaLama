@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\EnemyBuilder.cs" />
+    <Compile Include="Assets\Scripts\BossWeapon.cs" />
     <Compile Include="Assets\Scripts\Loading.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\LerpColor.cs" />

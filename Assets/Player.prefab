@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 1331762043585407534}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -494,6 +494,9 @@ MonoBehaviour:
   shootIntervalSeconds: 0.3
   shootDelaySeconds: 0
   isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 0}
+  missileShootIntervalSeconds: 1
 --- !u!1 &3137611616431991105
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +547,9 @@ MonoBehaviour:
   shootIntervalSeconds: 0.3
   shootDelaySeconds: 0
   isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 0}
+  missileShootIntervalSeconds: 1
 --- !u!1 &4160741642272426952
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +600,9 @@ MonoBehaviour:
   shootIntervalSeconds: 0.3
   shootDelaySeconds: 0
   isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 0}
+  missileShootIntervalSeconds: 1
 --- !u!1 &7372244110188470012
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +653,9 @@ MonoBehaviour:
   shootIntervalSeconds: 0.3
   shootDelaySeconds: 0
   isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 0}
+  missileShootIntervalSeconds: 1
 --- !u!1 &7724630394015175145
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,3 +739,6 @@ MonoBehaviour:
   shootIntervalSeconds: 0.3
   shootDelaySeconds: 0
   isActive: 0
+  missileAttackEnabled: 0
+  playerTransform: {fileID: 0}
+  missileShootIntervalSeconds: 1

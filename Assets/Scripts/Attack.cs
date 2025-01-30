@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -75,7 +76,7 @@ public class Attack : MonoBehaviour
             missileShootTimer += Time.deltaTime;
             if (missileShootTimer >= missileShootIntervalSeconds)
             {
-                MissileAttack(playerTransform.position);
+                MissileAttack(playerTransform);
                 missileShootTimer = 0.0f; // Zamanlayýcýyý sýfýrla
             }
         }
@@ -97,12 +98,21 @@ public class Attack : MonoBehaviour
         }
     }
 
-    public void MissileAttack(Vector2 targetPosition)
+    public void MissileAttack(Transform targetTransform)
     {
         GameObject go = Instantiate(bullet.gameObject, transform.position, Quaternion.identity);
         Bullet gobullet = go.GetComponent<Bullet>();
-        gobullet.direction = (targetPosition - (Vector2)transform.position).normalized;
         gobullet.isEnemy = true; // Merminin düþman mermisi olduðunu belirt
+        StartCoroutine(UpdateMissileDirection(gobullet, targetTransform));
+    }
+
+    private IEnumerator UpdateMissileDirection(Bullet missile, Transform targetTransform)
+    {
+        while (missile != null && targetTransform != null)
+        {
+            missile.direction = (targetTransform.position - missile.transform.position).normalized;
+            yield return null; // Bir sonraki kareye kadar bekle
+        }
     }
 
     public void ToggleMissileAttack(bool isEnabled)
