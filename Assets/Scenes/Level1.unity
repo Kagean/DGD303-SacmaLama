@@ -1652,7 +1652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927971452969905731, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4927971452969905731, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1686,10 +1686,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1213520131}
-    - target: {fileID: 8899074858941968670, guid: f1bdfb2327b8ab740b2251aa37622941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
